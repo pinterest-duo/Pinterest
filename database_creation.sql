@@ -17,3 +17,27 @@ CREATE TABLE users(
     reg_date DATETIME NOT NULL,
     PRIMARY KEY(user_id)
 );
+CREATE TABLE boards(
+    board_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    board_name VARCHAR(50) NOT NULL,
+    blurb VARCHAR(500),
+    category VARCHAR(50),
+    cover_pin VARCHAR(200),
+    secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    board_date DATETIME NOT NULL,
+    PRIMARY KEY(board_id),
+    FOREIGN KEY fk_users(user_id),
+    REFERENCES users(user_id),
+    ON UPDATE CASCADE,
+    ON DELETE NO ACTION,
+);
+CREATE TABLE pins(
+    pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    blurb VARCHAR(500),
+    section VARCHAR(50),
+    PRIMARY KEY(pin_id),
+    FOREIGN KEY fk_boards(board_id),
+    REFERENCES boards(board_id),
+    ON UPDATE CASCADE,
+    ON DELETE NO ACTION,
+);
