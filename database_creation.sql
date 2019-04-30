@@ -26,7 +26,8 @@ CREATE TABLE boards(
     secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
     board_date DATETIME NOT NULL,
     PRIMARY KEY(board_id),
-    FOREIGN KEY fk_users(user_id)
+    user_id INT,
+    FOREIGN KEY (user_id)
         REFERENCES users(user_id)
         ON DELETE CASCADE
 );
@@ -34,9 +35,11 @@ CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     blurb VARCHAR(500),
     PRIMARY KEY(pin_id),
+    board_id INT,
     FOREIGN KEY fk_boards(board_id)
         REFERENCES boards(board_id)
         ON DELETE CASCADE,
+    user_id INT,
     FOREIGN KEY fk_users(user_id)
         REFERENCES users(user_id)
         ON DELETE CASCADE
