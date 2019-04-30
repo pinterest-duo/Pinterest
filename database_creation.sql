@@ -14,7 +14,7 @@ CREATE TABLE users(
     user_language VARCHAR(20) NOT NULL,
     country VARCHAR(20) NOT NULL,
     user_location VARCHAR(30) NOT NULL,
-    reg_date DATETIME NOT NULL,
+    reg_date DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(user_id)
 );
 CREATE TABLE boards(
