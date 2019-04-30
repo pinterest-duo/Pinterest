@@ -26,18 +26,18 @@ CREATE TABLE boards(
     secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
     board_date DATETIME NOT NULL,
     PRIMARY KEY(board_id),
-    FOREIGN KEY fk_users(user_id),
-    REFERENCES users(user_id),
-    ON UPDATE CASCADE,
-    ON DELETE NO ACTION,
+    FOREIGN KEY fk_users(user_id)
+        REFERENCES users(user_id)
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION
 );
 CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     blurb VARCHAR(500),
     section VARCHAR(50),
     PRIMARY KEY(pin_id),
-    FOREIGN KEY fk_boards(board_id),
-    REFERENCES boards(board_id),
-    ON UPDATE CASCADE,
-    ON DELETE NO ACTION,
+    FOREIGN KEY fk_boards(board_id)
+        REFERENCES boards(board_id)
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION
 );
