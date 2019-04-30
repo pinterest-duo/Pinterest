@@ -22,7 +22,7 @@ CREATE TABLE boards(
     board_name VARCHAR(50) NOT NULL,
     blurb VARCHAR(500),
     category VARCHAR(50),
-    cover_pin VARCHAR(200),
+    cover_pin_url VARCHAR(200),
     secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
     board_date DATETIME NOT NULL,
     PRIMARY KEY(board_id),
@@ -33,6 +33,7 @@ CREATE TABLE boards(
 );
 CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    pin_url VARCHAR(200) NOT NULL,
     blurb VARCHAR(500),
     PRIMARY KEY(pin_id),
     board_id INT UNSIGNED,
