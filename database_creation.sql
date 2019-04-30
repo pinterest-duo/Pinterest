@@ -14,7 +14,7 @@ CREATE TABLE users(
     user_language VARCHAR(20) NOT NULL,
     country VARCHAR(20) NOT NULL,
     user_location VARCHAR(30) NOT NULL,
-    reg_date DEFAULT CURRENT_TIMESTAMP,
+    reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(user_id)
 );
 CREATE TABLE boards(
@@ -33,7 +33,6 @@ CREATE TABLE boards(
 CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     blurb VARCHAR(500),
-    section VARCHAR(50),
     PRIMARY KEY(pin_id),
     FOREIGN KEY fk_boards(board_id)
         REFERENCES boards(board_id)
