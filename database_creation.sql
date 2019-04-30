@@ -28,8 +28,7 @@ CREATE TABLE boards(
     PRIMARY KEY(board_id),
     FOREIGN KEY fk_users(user_id)
         REFERENCES users(user_id)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION
+        ON DELETE CASCADE
 );
 CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -38,6 +37,8 @@ CREATE TABLE pins(
     PRIMARY KEY(pin_id),
     FOREIGN KEY fk_boards(board_id)
         REFERENCES boards(board_id)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION
+        ON DELETE CASCADE,
+    FOREIGN KEY fk_users(user_id)
+        REFERENCES users(user_id)
+        ON DELETE CASCADE
 );
