@@ -136,7 +136,7 @@ nav.navbar input:focus{
     background-color: #ffffff;
     position: relative;
     top: 20px;
-    left: 10px;
+    left: 70px;
     border-radius: 10px;
     clear: both;
     padding: 12px;
@@ -182,7 +182,14 @@ nav.navbar input:focus{
 }
 .boardSelectionBottomCreate{
     background-color: #ffffff;
-    border-top: 1px white solid;
+    border-top: 1px #f2f2f2 solid;
+    /* border: 1px red solid; */
+    height: 20px;
+    padding: 10px;
+}
+.boardSelectionBottomCreate p{
+    font-weight: bold;
+    padding-left: 50px;
 }
 .createButton{
     border-radius: 30px;
@@ -194,6 +201,7 @@ nav.navbar input:focus{
     line-height: 25px;
     padding: 0 5px;
     float: left;
+    margin-left: 0px;
 }
 /* Creating the nav without bootstrap */
 /* #nav{
