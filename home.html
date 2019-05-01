@@ -28,6 +28,12 @@
                 $('.boardSelectionContainer').toggle();
                 // $('.dropdownContainer').toggle();
             });
+            console.log("hello");
+            $('.dropdownContainerForm').submit(function(e){
+                console.log("form submitted");
+                e.preventDefault();
+                // return False;
+            });
         });
     </script>
 </head>
@@ -77,8 +83,11 @@
                 <!-- <div class="savePin" onclick="">Save</div> -->
                 
                 <form class="dropdownContainerForm" action="" method="POST">
+                    <!-- Pin and board ids will be populated using PHP -->
                     <input type="hidden" value="pin_id">
-                    <input type="submit" class="savePin" value="Save">
+                    <input type="hidden" value="board_id">
+                    <!-- <input type="submit" class="savePin" value="Save"> -->
+                    <button class="savePin" type="submit" value="send">Save</button>
                 </form>
 
                 <!-- The dropdown menu for other boards -->
