@@ -48,14 +48,13 @@
     top: 20px;
     left: 0;
     right: 0;
-    /* background-color: #f8f8f8; */
     width: 220px;
     height: 40px;
     margin: auto;
     border-radius: 10px;
     z-index: 99;
-    /* visibility: hidden; */
-    /* display: none; */
+    
+    display: none;
 }
 .dropdownContainer div, .saveContainer div{
     margin: 0;
@@ -111,6 +110,9 @@
     margin: 0;
     z-index: 99;
 }
+.dropdownContainer{
+    display:none;
+}
 .boardSelection{
     width: 320px;
     background-color: #ffffff;
@@ -125,6 +127,9 @@
     max-height: 400px;
     overflow: scroll;
     /* display:none; */
+}
+.boardSelectionContainer{
+    display:none;
 }
 .searchBoardSelection{
     background-color: #ffffff;

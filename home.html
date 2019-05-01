@@ -23,10 +23,11 @@
             // boarddd.addEventListener("click", function(){
             //     $(this).parent().prev().find('.boardSelection').css({'display':'block'});
             // });
-            // $('.boardDropdown').click(function(){
-            //     // $('.boardSelection').css({'display':'block'});
-            //     $('.boardSelection').toggle();
-            // });
+            $('.boardDropdown').click(function(){
+                // $('.boardSelection').css({'display':'block'});
+                $('.boardSelectionContainer').toggle();
+                // $('.dropdownContainer').toggle();
+            });
         });
     </script>
 </head>
@@ -73,13 +74,12 @@
                 <!-- The dropdown "button" -->
                 <div class="boardDropdown">Board Name<img src="dropdown_arrow.png" alt="&caron;"></div>
                 <!-- The Save pin "button" -->
-                <div class="savePin" onclick="">Save</div>
-                <!-- <form class="dropdownContainerForm" action="" method="POST">
-                    <div class="boardDropdown">Board Name<img src="dropdown_arrow.png" alt="&caron;"></div>
+                <!-- <div class="savePin" onclick="">Save</div> -->
+                
+                <form class="dropdownContainerForm" action="" method="POST">
                     <input type="hidden" value="pin_id">
                     <input type="submit" class="savePin" value="Save">
-                    <div class="savePin" onclick="">Save</div> 
-                </form>-->
+                </form>
 
                 <!-- The dropdown menu for other boards -->
                 <!-- A container to hold the entire dropdown menu -->
