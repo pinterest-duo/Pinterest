@@ -38,7 +38,7 @@ nav.navbar input:focus{
     background-color: #000000;
 }
 .pinImg:hover{
-    opacity: 0.5;
+    opacity: 0.9;
 }
 .pin a.ellipses{
     margin: 0;
@@ -68,6 +68,8 @@ nav.navbar input:focus{
     height: 40px;
     margin: auto;
     border-radius: 10px;
+    z-index: 99;
+    visibility: hidden;
 }
 .dropdownContainer div{
     margin: 0;
@@ -87,7 +89,9 @@ nav.navbar input:focus{
     background-color: #e2e2e2;
 }
 .boardDropdown img{
-    width: 40px;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
 }
 .dropdownArrow{
     /* font-size: 10%; */
@@ -99,7 +103,7 @@ nav.navbar input:focus{
     color: #ffffff;
     float: right;
     width: 60px;
-    padding: 6px 12px;
+    padding: 7px 12px;
     border-radius: 0 10px 10px 0;
 }
 .savePin:hover{
