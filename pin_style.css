@@ -11,8 +11,14 @@ nav.navbar{
     height: 60px;
     width: 100%;
 }
-nav.navbar input{
+nav.navbar input, .boardSelection input{
     background-color: #efefef;
+    background-image: url('searchIcon.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+    padding-left: 40px;
     border: none;
 }
 nav.navbar input:focus{
@@ -27,6 +33,10 @@ nav.navbar input:focus{
 }
 .pin:hover{
     background-color: #f2f2f2;
+}
+.pin form{
+    padding: 0;
+    margin: 0;
 }
 .pinImg{
     width: 240px;
@@ -44,8 +54,6 @@ nav.navbar input:focus{
     margin: 5px 0 0 0;
     padding: 7px 0;
     line-height: 2px;
-    /* position: absolute;
-    right: 10px; */
     float: right;
     color: #999999;
     text-decoration: none;
@@ -56,13 +64,6 @@ nav.navbar input:focus{
 }
 .ellipses:hover{
     background-color: #e4e4e4;
-}
-.profileImg{
-    float: left;
-    background-color: #999999;
-    height: 25px;
-    width: 25px;
-    border-radius: 25px;
 }
 .pin:hover .dropdownContainer, .pin:hover .saveContainer{
     display: block;
@@ -83,17 +84,16 @@ nav.navbar input:focus{
 }
 .dropdownContainer div, .saveContainer div{
     margin: 0;
-    height: inherit;
 }
 .boardDropdown{
     float: left;
     border-radius: 10px 0 0 10px;
     background-color: #f8f8f8;
     color: #333333;
-    padding: 6px 0px;
-    letter-spacing: 2px;
+    padding: 7px 0 7px 15px;
     width: 160px;
     overflow: hidden;
+    text-align: left;
 }
 .boardDropdown:hover{
     background-color: #e2e2e2;
@@ -101,21 +101,29 @@ nav.navbar input:focus{
 .boardDropdown img{
     width: 15px;
     height: 15px;
-    margin-left: 5px;
+    margin-right: 10px;
+    margin-top:5px;
+    float: right;
 }
-.savePin, .savePinwImg{
+.savePin, .savePinwImg, .savePinBoard{
     background-color: #ff0000;
     color: #ffffff;
     float: right;
     width: 60px;
     padding: 7px 12px;
     border-radius: 0 10px 10px 0;
+    border:none;
 }
 .savePinwImg{
     width: 80px;
     border-radius: 10px;
 }
-.savePin:hover, .savePinwImg:hover{
+.savePinBoard{
+    border-radius: 10px;
+    /* padding:0; */
+    margin: 20px 0;
+}
+.savePin:hover, .savePinwImg:hover, .savePinBoard:hover{
     background-color: #e00000;
 }
 .pinIcon{
@@ -123,7 +131,70 @@ nav.navbar input:focus{
     height: 20px;
     margin-right: 8px;
 }
-
+.boardSelection{
+    width: 320px;
+    background-color: #ffffff;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    border-radius: 10px;
+    clear: both;
+    padding: 12px;
+    text-align: start;
+    
+    max-height: 400px;
+    overflow: scroll;
+    /* display:none; */
+}
+.searchBoardSelection{
+    background-color: #ffffff;
+    padding-bottom: 10px;
+    /* position: sticky; */
+}
+.boardNameDropdown{
+    /* display: inline; */
+    float:left;
+    margin: 5px 5px 5px 15px;
+    text-align: start;
+}
+.boardSelection h4{
+    text-align: start;
+    font-size: 14px; 
+    font-weight: normal;
+    margin-top: 8px;
+}
+.boardOptionContainer{
+    padding: 8px;
+    border-radius: 10px;
+    clear: both;
+    height: 54px;
+}
+.boardOptionContainer:hover{
+    background-color: #f8f8f8;
+}
+.boardThumb{
+    float: left;
+    height: 34px;
+    width: 30px;
+    border-radius: 10px;
+    margin: 3px;
+    /* clip: auto; */
+}
+.boardSelectionBottomCreate{
+    background-color: #ffffff;
+    border-top: 1px white solid;
+}
+.createButton{
+    border-radius: 30px;
+    height: 30px;
+    width: 30px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 30px;
+    line-height: 25px;
+    padding: 0 5px;
+    float: left;
+}
 /* Creating the nav without bootstrap */
 /* #nav{
     height: 60px;
