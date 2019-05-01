@@ -2,22 +2,46 @@
     /* font-family: sans-serif; */
 }
 body{
-    background-color: grey;
+    /* background-color: #fffed2; */
+    padding-left: 20px;
+    padding-right: 10px;
 }
 nav.navbar{
     background-color: white;
     height: 60px;
+    width: 100%;
 }
 nav.navbar input{
-    background-color: rgb(240, 240, 240);
+    background-color: #f8f8f8;
     border: none;
 }
-#searchBar{
-
+.pin{
+    background-color: white;
+    margin: 5px;
+    padding: 6px;
+    padding-bottom: 50px;
+    border-radius: 6px;
 }
-@media only screen and (max-width: 768) {
-
+.pin:hover{
+    background-color: #f8f8f8;
 }
+.pin img{
+    width: 240px;
+    height: auto;
+    /* clip: auto; */
+    margin: auto;
+    border-radius: 10px;
+    display: block;
+}
+.pin a{
+    /* text-align: right; */
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    color: #b3b3b3;
+    text-decoration: none;
+}
+/* Creating the nav without bootstrap */
 /* #nav{
     height: 60px;
     width: 100%;
