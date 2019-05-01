@@ -28,13 +28,17 @@ nav.navbar input:focus{
 .pin:hover{
     background-color: #f2f2f2;
 }
-.pin img{
+.pinImg{
     width: 240px;
     height: auto;
     /* clip: auto; */
     margin: auto;
     border-radius: 10px;
     display: block;
+    background-color: #000000;
+}
+.pinImg:hover{
+    opacity: 0.5;
 }
 .pin a.ellipses{
     margin: 0;
@@ -102,7 +106,7 @@ nav.navbar input:focus{
     background-color: #e00000;
 }
 .row{
-    background-color: #e00000;
+    /* background-color: #e00000; */
 }
 /* Creating the nav without bootstrap */
 /* #nav{
