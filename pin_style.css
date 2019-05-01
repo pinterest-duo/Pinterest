@@ -120,8 +120,8 @@ nav.navbar input:focus{
 }
 .savePinBoard{
     border-radius: 10px;
-    /* padding:0; */
     margin: 20px 0;
+    visibility: hidden;
 }
 .savePin:hover, .savePinwImg:hover, .savePinBoard:hover{
     background-color: #e00000;
@@ -156,12 +156,15 @@ nav.navbar input:focus{
     float:left;
     margin: 5px 5px 5px 15px;
     text-align: start;
+    font-weight: bold;
+    color: #333333;
 }
 .boardSelection h4{
     text-align: start;
     font-size: 14px; 
     font-weight: normal;
     margin-top: 8px;
+    color: #333333;
 }
 .boardOptionContainer{
     padding: 8px;
@@ -171,6 +174,9 @@ nav.navbar input:focus{
 }
 .boardOptionContainer:hover{
     background-color: #f8f8f8;
+}
+.boardOptionContainer:hover .savePinBoard{
+    visibility: visible;
 }
 .boardThumb{
     float: left;
@@ -190,6 +196,7 @@ nav.navbar input:focus{
 .boardSelectionBottomCreate p{
     font-weight: bold;
     padding-left: 50px;
+    color: #333333;
 }
 .createButton{
     border-radius: 30px;
