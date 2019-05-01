@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="pin_style.css" type="text/css"/>
+    <link rel="stylesheet" href="nav_style.css" type="text/css"/>
     <link rel="icon" href="pinterest_logo.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -43,25 +44,35 @@
                 <a class="nav-link" href="#">Following</a>
             </li>
             <li class="nav-item">
+                <!-- Replace with actual user pic -->
+                <a class="nav-link" href="profile.html"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
+            </li>
+            <li class="nav-item">
+                <!-- Replace Username with actual username -->
                 <a class="nav-link" href="profile.html">Username</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Messages</a>
+                <a class="nav-link" href="">Messages</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Notifications</a>
+                <a class="nav-link" href="">Notifications</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">More</a>
+                <a class="nav-link navEllipse" href="">...</a>
             </li>
         </ul>
     </nav>
     <div class="container-fluid">
     <div class="row">
+        <!-- Each column in the row is a pin -->
         <div class="col-auto text-center pin">
-            
+            <!-- At the top of each pin is a container that either holds a dropdown menu or a save pin button if there are no boards (can't tell when pinterest actually makes the decision to include the boards here) -->
+
+            <!-- Display dropdown menus at the top of the pin -->
             <div class="dropdownContainer">
+                <!-- The dropdown "button" -->
                 <div class="boardDropdown">Board Name<img src="dropdown_arrow.png" alt="&caron;"></div>
+                <!-- The Save pin "button" -->
                 <div class="savePin" onclick="">Save</div>
                 <!-- <form class="dropdownContainerForm" action="" method="POST">
                     <div class="boardDropdown">Board Name<img src="dropdown_arrow.png" alt="&caron;"></div>
@@ -69,12 +80,19 @@
                     <input type="submit" class="savePin" value="Save">
                     <div class="savePin" onclick="">Save</div> 
                 </form>-->
+
+                <!-- The dropdown menu for other boards -->
+                <!-- A container to hold the entire dropdown menu -->
                 <div class="boardSelectionContainer">
+                    <img src="dropdownMenuArrow.png" class="dropdownMenuArrow">
+                    <!-- Container to hold the top part of the dropdown menu -->
                     <div class="boardSelection">
+                        <!-- Search bar for the top of the dropdown -->
                         <div class="searchBoardSelection">
                             <input class="form-control md-auto" type="search" placeholder="Search">
                         </div>
                         <h4 class="allBoardsText">All boards</h4>
+                        <!-- Each item in the dropdown selection: TO BE POPULATED VIA PHP-->
                         <div class="boardOptionContainer">
                             <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
                             <p class="boardNameDropdown">Board 2</p>
@@ -100,8 +118,10 @@
                         <p>Create Board</p>
                     </div> -->
                 </div>
+
             </div>
 
+            <!-- Actual pin image -->
             <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg"/>
             
             <a href="" class="ellipses">...</a>

@@ -1,0 +1,41 @@
+*{
+    /* font-family: sans-serif; */
+}
+body{
+    /* background-color: #fffed2; */
+    padding-left: 20px;
+    padding-right: 10px;
+}
+nav.navbar{
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    font-weight: bold;
+}
+nav.navbar input, .boardSelection input{
+    background-color: #efefef;
+    background-image: url('searchIcon.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+    padding-left: 40px;
+    border: none;
+}
+nav.navbar input:focus{
+    background-color: #efefef;
+}
+.navEllipse{
+    font-size: 30px;
+    line-height: 5px;
+}
+.profileImg{
+    height: 25px;
+    width: 25px;
+    border-radius: 25px;
+    display: inline;
+}
+
+
+/* Creating the nav without bootstrap */
+/* #nav{

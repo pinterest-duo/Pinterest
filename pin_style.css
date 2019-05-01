@@ -1,29 +1,4 @@
-*{
-    /* font-family: sans-serif; */
-}
-body{
-    /* background-color: #fffed2; */
-    padding-left: 20px;
-    padding-right: 10px;
-}
-nav.navbar{
-    background-color: white;
-    height: 60px;
-    width: 100%;
-}
-nav.navbar input, .boardSelection input{
-    background-color: #efefef;
-    background-image: url('searchIcon.png');
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 10px;
-    padding-left: 40px;
-    border: none;
-}
-nav.navbar input:focus{
-    background-color: #efefef;
-}
+/* Pin CSS */
 .pin{
     background-color: white;
     margin: 5px;
@@ -80,7 +55,7 @@ nav.navbar input:focus{
     border-radius: 10px;
     z-index: 99;
     /* visibility: hidden; */
-    display: none;
+    /* display: none; */
 }
 .dropdownContainer div, .saveContainer div{
     margin: 0;
@@ -131,11 +106,16 @@ nav.navbar input:focus{
     height: 20px;
     margin-right: 8px;
 }
+.dropdownMenuArrow{
+    width: 25px;
+    margin: 0;
+    z-index: 99;
+}
 .boardSelection{
     width: 320px;
     background-color: #ffffff;
     position: relative;
-    top: 20px;
+    top: -5px;
     left: 70px;
     border-radius: 10px;
     clear: both;
@@ -149,7 +129,6 @@ nav.navbar input:focus{
 .searchBoardSelection{
     background-color: #ffffff;
     padding-bottom: 10px;
-    /* position: sticky; */
 }
 .boardNameDropdown{
     /* display: inline; */
@@ -186,6 +165,7 @@ nav.navbar input:focus{
     margin: 3px;
     /* clip: auto; */
 }
+/* Bottom part of the Boards Dropdown Menu */
 .boardSelectionBottomCreate{
     background-color: #ffffff;
     border-top: 1px #f2f2f2 solid;
@@ -210,37 +190,3 @@ nav.navbar input:focus{
     float: left;
     margin-left: 0px;
 }
-/* Creating the nav without bootstrap */
-/* #nav{
-    height: 60px;
-    width: 100%;
-    background-color: white;
-    position: fixed;
-}
-#navLogo{
-    position: absolute;
-    top: 17px;
-    left: 25px;
-}
-#searchBar{
-    position: absolute;
-    top: 12px;
-    left: 80px;
-    height: 36px;
-    border: none;
-    background-color: rgb(240, 240, 240);
-    border-radius: 7px;
-    padding: 20px;
-}
-#nav ul{
-    list-style-type: none;
-    position: absolute;
-    top: 17px;
-    right: 0;
-    font-weight: bold;
-}
-#nav li{
-    display: inline-block;
-    padding-left: 2px;
-    padding-right: 2px;
-} */
