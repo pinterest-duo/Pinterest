@@ -69,7 +69,7 @@ nav.navbar input:focus{
     margin: auto;
     border-radius: 10px;
     z-index: 99;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 .dropdownContainer div{
     margin: 0;
