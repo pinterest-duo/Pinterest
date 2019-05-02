@@ -12,7 +12,7 @@ nav.navbar{
     width: 100%;
     font-weight: bold;
 }
-nav.navbar input, .boardSelection input{
+nav.navbar input.searchBar, .boardSelection input.searchBar{
     background-color: #efefef;
     background-image: url('searchIcon.png');
     background-size: 20px;

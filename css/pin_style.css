@@ -43,6 +43,42 @@
 .pin:hover .dropdownContainer, .pin:hover .saveContainer{
     display: block;
 }
+
+
+/* Save Pin Buttons */
+.savePin, .savePinwImg, .savePinBoard{
+    background-color: #ff0000;
+    color: #ffffff;
+    float: right;
+    width: 60px;
+    height: 40px;
+    padding: 7px 12px;
+    border:none;
+}
+.savePin{
+    border-radius: 0 10px 10px 0;
+}
+.savePinwImg{
+    width: 80px;
+    border-radius: 10px;
+}
+.savePinwImg:focus, .savePin:focus, .savePinBoard:hover{
+    outline: none;
+}
+.savePinBoard{
+    border-radius: 10px;
+    margin: 6px 10px;
+    visibility: hidden;
+}
+.savePin:hover, .savePinwImg:hover, .savePinBoard:hover{
+    background-color: #e00000;
+}
+.pinIcon{
+    width: 12px;
+    height: 20px;
+    margin-right: 8px;
+}
+
 .dropdownContainer, .saveContainer{
     position: absolute;
     top: 20px;
@@ -66,8 +102,10 @@
     color: #333333;
     padding: 7px 0 7px 15px;
     width: 160px;
+    height: 40px;
     overflow: hidden;
     text-align: left;
+    cursor: pointer;
 }
 .boardDropdown:hover{
     background-color: #e2e2e2;
@@ -79,35 +117,8 @@
     margin-top:5px;
     float: right;
 }
-.savePin, .savePinwImg, .savePinBoard{
-    background-color: #ff0000;
-    color: #ffffff;
-    float: right;
-    width: 60px;
-    padding: 7px 12px;
-    border-radius: 0 10px 10px 0;
-    border:none;
-}
-.savePinwImg{
-    width: 80px;
-    border-radius: 10px;
-}
-.savePinwImg:focus, .savePin:focus, .savePinBoard:hover{
-    outline: none;
-}
-.savePinBoard{
-    border-radius: 10px;
-    margin: 20px 0;
-    visibility: hidden;
-}
-.savePin:hover, .savePinwImg:hover, .savePinBoard:hover{
-    background-color: #e00000;
-}
-.pinIcon{
-    width: 12px;
-    height: 20px;
-    margin-right: 8px;
-}
+
+/* The Dropdown div that appears on selection for more boards */
 .dropdownMenuArrow{
     width: 25px;
     margin: 0;
@@ -115,7 +126,8 @@
 .dropdownContainer{
     display:none;
 }
-/* The top and bottom halves of the dropdown need these same properties */
+/* The top and bottom halves of the
+ dropdown need these same properties */
 .boardSelectionContainer{
     /* position: relative; */
     /* top: -5px; */
@@ -138,6 +150,7 @@
     max-height: 400px;
     overflow: scroll;
     /* display:none; */
+    position: relative;
 }
 .boardSelectionContainer{
     display:none;
@@ -156,32 +169,34 @@
 
 /* The board options */
 .boardOptionContainer{
-    padding: 8px;
+    /* padding: 8px; */
     border-radius: 10px;
     clear: both;
     height: 54px;
+    cursor: pointer;
 }
 .boardNameDropdown{
     /* display: inline; */
     float:left;
-    margin: 5px 5px 5px 15px;
+    margin: 21px 5px;
+    line-height: 12px;
+    /* border: 1px solid #00d9ff; */
     text-align: start;
     font-weight: bold;
     color: #333333;
-}
-.boardOptionContainer:hover, .boardSelectionBottomCreate:hover{
-    background-color: #f8f8f8;
-}
-.boardOptionContainer:hover .savePinBoard{
-    visibility: visible;
 }
 .boardThumb{
     float: left;
     height: 34px;
     width: 30px;
     border-radius: 10px;
-    margin: 3px;
-    /* clip: auto; */
+    margin: 10px;
+}
+.boardOptionContainer:hover .savePinBoard{
+    visibility: visible;
+}
+.boardOptionContainer:hover, .boardSelectionBottomCreate:hover{
+    background-color: #f8f8f8;
 }
 
 /* Bottom part of the Boards Dropdown Menu */

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
-    <link rel="icon" href="pinterest_logo.ico"/>
+    <link rel="icon" href="images/pinterest_logo.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -37,10 +37,9 @@
 </head>
 
 <body>
-    
     <nav class="navbar sticky-top navbar-expand navbar-light">
         <a class="navbar-brand" href="home.html"><img src="images/pinterest_logo.png" alt="Pinterest" height="27px"></a>
-        <input class="form-control mr-lg-2" id="searchBar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-lg-2 searchBar" id="searchBar" type="search" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="home.html">Home</a>
@@ -77,13 +76,10 @@
             <div class="dropdownContainer">
                 <!-- The dropdown "button" -->
                 <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <!-- The Save pin "button" -->
-                <!-- <div class="savePin" onclick="">Save</div> -->
-                
                 <form class="dropdownContainerForm" action="" method="POST">
                     <!-- Pin and board ids will be populated using PHP -->
-                    <input type="hidden" value="pin_id">
-                    <input type="hidden" value="board_id">
+                    <input type="hidden" value="pin_id" name="pin_id">
+                    <input type="hidden" value="board_id" name="board_id">
                     <input type="submit" class="savePin" value="Save">
                 </form>
 
@@ -96,7 +92,7 @@
                     <div class="boardSelection">
                         <!-- Search bar for the top of the dropdown -->
                         <div class="searchBoardSelection">
-                            <input class="form-control md-auto" type="search" placeholder="Search">
+                            <input class="form-control md-auto searchBar" type="search" placeholder="Search">
                         </div>
                         <h4 class="allBoardsText">All boards</h4>
                         
@@ -104,17 +100,36 @@
                         <div class="boardOptionContainer">
                             <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
                             <p class="boardNameDropdown">Board 2</p>
-                            <div class="savePinBoard" onclick="">Save</div>
+                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
+                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
+                                <!-- Pin and board ids will be populated using PHP -->
+                                <input type="hidden" value="pin_id" name="pin_id">
+                                <input type="hidden" value="board_id" name="board_id">
+                                <input type="submit" class="savePinBoard" value="Save">
+                            </form>
                         </div>
+
                         <div class="boardOptionContainer">
                             <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
                             <p class="boardNameDropdown">Board 3</p>
-                            <div class="savePinBoard" onclick="">Save</div>
+                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
+                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
+                                <!-- Pin and board ids will be populated using PHP -->
+                                <input type="hidden" value="pin_id" name="pin_id">
+                                <input type="hidden" value="board_id" name="board_id">
+                                <input type="submit" class="savePinBoard" value="Save">
+                            </form>
                         </div>
                         <div class="boardOptionContainer">
                             <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
                             <p class="boardNameDropdown">Board 4</p>
-                            <div class="savePinBoard" onclick="">Save</div>
+                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
+                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
+                                <!-- Pin and board ids will be populated using PHP -->
+                                <input type="hidden" value="pin_id" name="pin_id">
+                                <input type="hidden" value="board_id" name="board_id">
+                                <input type="submit" class="savePinBoard" value="Save">
+                            </form>
                         </div>
                         <!-- <div class="boardSelectionBottomCreate">
                             <div class="createButton">+</div>
