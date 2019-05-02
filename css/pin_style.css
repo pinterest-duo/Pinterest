@@ -92,6 +92,9 @@
     width: 80px;
     border-radius: 10px;
 }
+.savePinwImg:focus, .savePin:focus, .savePinBoard:hover{
+    outline: none;
+}
 .savePinBoard{
     border-radius: 10px;
     margin: 20px 0;
@@ -108,18 +111,26 @@
 .dropdownMenuArrow{
     width: 25px;
     margin: 0;
-    z-index: 99;
 }
 .dropdownContainer{
     display:none;
 }
-.boardSelection{
+/* The top and bottom halves of the dropdown need these same properties */
+.boardSelectionContainer{
+    /* position: relative; */
+    /* top: -5px; */
+    margin-top: -20px;
+}
+.boardSelection, .boardSelectionBottomCreate{
     width: 320px;
     background-color: #ffffff;
     position: relative;
     top: -5px;
     left: 70px;
-    border-radius: 10px;
+}
+.boardSelection{
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
     clear: both;
     padding: 12px;
     text-align: start;
@@ -135,6 +146,21 @@
     background-color: #ffffff;
     padding-bottom: 10px;
 }
+.boardSelection h4{
+    text-align: start;
+    font-size: 14px; 
+    font-weight: normal;
+    margin-top: 8px;
+    color: #333333;
+}
+
+/* The board options */
+.boardOptionContainer{
+    padding: 8px;
+    border-radius: 10px;
+    clear: both;
+    height: 54px;
+}
 .boardNameDropdown{
     /* display: inline; */
     float:left;
@@ -143,20 +169,7 @@
     font-weight: bold;
     color: #333333;
 }
-.boardSelection h4{
-    text-align: start;
-    font-size: 14px; 
-    font-weight: normal;
-    margin-top: 8px;
-    color: #333333;
-}
-.boardOptionContainer{
-    padding: 8px;
-    border-radius: 10px;
-    clear: both;
-    height: 54px;
-}
-.boardOptionContainer:hover{
+.boardOptionContainer:hover, .boardSelectionBottomCreate:hover{
     background-color: #f8f8f8;
 }
 .boardOptionContainer:hover .savePinBoard{
@@ -170,16 +183,20 @@
     margin: 3px;
     /* clip: auto; */
 }
+
 /* Bottom part of the Boards Dropdown Menu */
 .boardSelectionBottomCreate{
-    background-color: #ffffff;
     border-top: 1px #f2f2f2 solid;
     /* border: 1px red solid; */
-    height: 20px;
+    height: 60px;
     padding: 10px;
+    padding-left: 22px;
+    position: relative;
+    border-radius: 0 0 10px 10px;
 }
 .boardSelectionBottomCreate p{
     font-weight: bold;
+    text-align: start;
     padding-left: 50px;
     color: #333333;
 }
@@ -193,5 +210,4 @@
     line-height: 25px;
     padding: 0 5px;
     float: left;
-    margin-left: 0px;
 }
