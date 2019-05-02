@@ -35,17 +35,37 @@
             );
             $('.boardDropdown').click(function(){
                 $('.boardSelectionContainer').toggle();
-                // $('.pin').unbind('mouseenter mouseleave')
+                // $('.pin').unbind('mouseenter mouseleave');
             });
-            $('body').click(function(event){
-                if(!$(event.target).closest('#openModal').length && !$(event.target).is('#openModal')) {
-                    $(".modalDialog").hide();
-                }     
-            });
+            // $('body').click(function(event){
+            //     if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
+            //         $(".dropdownContainer").hide();
+            //         $('.pin').on('mouseenter mouseleave');
+            //     }
+            // });
             $('.dropdownContainerForm').submit(function(event){
                 console.log("form submitted");
-                event.preventDefault();
+                // event.preventDefault();
             });
+
+            // $('.savePinBoard').click(function(){
+            //     var pin_Url = $(this).children('input.pin_url').val();
+            //     var board_id = $(this).children('input.board_id').val();
+            //     var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
+
+                // console.log("form submitted");
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "save_pin.php", 
+            //         data: dataString,
+            //         success: function(){
+            //             $(this).parentNode(".dropdownContainer").css({'display':'none'});
+            //         }
+            //     });
+            //     return false;
+            //     // event.preventDefault();
+            //     // });
+            // });
             // $('.boardOptionContainer').click(function(){
             //     // console.log("div form submitted");
             //     this.parentNode.submit(function(e){
@@ -53,6 +73,7 @@
             //         e.preventDefault();
             //     });
             // });
+            
         });
         // function submitPinForm(){
         //     this.parentNode.submit(function(e){
@@ -191,13 +212,11 @@
                     </div>';
                 }
                 echo '
-                    <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg"/>
+                    <img class="pinImg" src="'.$row['pin_url'].'"/>
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
         ?>
-
-
 
 <!-- HTML BEGINS HERE -->
 
@@ -208,9 +227,9 @@
                 <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
                 <form class="dropdownContainerForm" action="home.php" method="POST">
                     <!-- Pin and board ids will be populated using PHP -->
-                    <input type="hidden" value="1" name="pin_id">
-                    <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" name="pin_url">
-                    <input type="hidden" value="1" name="board_id">
+                    <input type="hidden" value="1" class="pin_id" name="pin_id">
+                    <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" class="pin_url" name="pin_url">
+                    <input type="hidden" value="1" class="board_id" name="board_id">
                     <input type="submit" class="savePin" value="Save">
                 </form>
 
@@ -234,9 +253,9 @@
                                 <p class="boardNameDropdown">Board 2</p>
                                 <!-- <div class="savePinBoard" onclick="">Save</div> -->
                                 <!-- Pin and board ids will be populated using PHP -->
-                                <input type="hidden" value="1" name="pin_id">
-                                <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" name="pin_url">
-                                <input type="hidden" value="1" name="board_id">
+                                <input type="hidden" value="1" class="pin_id" name="pin_id">
+                                <input type="hidden" value="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"  class="pin_url" name="pin_url">
+                                <input type="hidden" value="1" class="board_id" name="board_id">
                                 <input type="submit" class="savePinBoard" value="Save">
                             </div>
                         </form>
@@ -249,7 +268,7 @@
 
             </div>
             <!-- Actual pin image -->
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg"/>
+            <img class="pinImg" src="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"/>
             <a href="" class="ellipses">...</a>
         </div>
         

@@ -41,6 +41,9 @@
 .ellipses:hover{
     background-color: #e4e4e4;
 }
+.pin:hover .dropdownContainer, .pin:hover .saveContainer{
+    display: block;
+}
 
 /* Save Pin Buttons */
 .savePin, .savePinwImg, .savePinBoard{
@@ -132,6 +135,7 @@
     margin-top: -20px;
 }
 .boardSelection, .boardSelectionBottomCreate{
+    /* box-shadow: 10px 10px 10px 10px #888888; */
     width: 320px;
     background-color: #ffffff;
     position: relative;
