@@ -23,7 +23,7 @@ CREATE TABLE boards(
     blurb VARCHAR(500),
     category VARCHAR(50),
     cover_pin_url VARCHAR(200),
-    secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    secret_board VARCHAR(3) DEFAULT 'NO',
     board_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(board_id),
     user_id INT UNSIGNED,
@@ -35,6 +35,7 @@ CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     pin_url VARCHAR(200) NOT NULL,
     blurb VARCHAR(500),
+    pin_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(pin_id),
     board_id INT UNSIGNED,
     FOREIGN KEY fk_boards(board_id)
@@ -47,6 +48,19 @@ CREATE TABLE pins(
 );
 
 -- Test data
-INSERT INTO users VALUES(0, 'test_user', 'test@test.com', 'pass', '21', 'test', 'test', 'female', 'English', 'United States', 'New York', NULL);
+INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) VALUES(1, 'test_user', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
 
-INSERT INTO boards(board_id, board_name, secret_board, user_id) VALUES(0, 'test_board', 0, 0)
+INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
+
+INSERT INTO pins(pin_url, board_id, user_id) VALUES('google.com','1','1');
+
+
+DELETE FROM users WHERE user_id='1';
+DELETE FROM boards WHERE board_id='1';
+
+SELECT * FROM users;
+SELECT * FROM boards;
+SELECT * FROM pins;
+
+DESCRIBE users;
+DESCRIBE boards;
