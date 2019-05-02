@@ -34,17 +34,13 @@
                 }
             );
             $('.boardDropdown').click(function(){
+                // $('.boardSelection').css({'display':'block'});
                 $('.boardSelectionContainer').toggle();
-                // $('.pin').unbind('mouseenter mouseleave')
+                // $('.dropdownContainer').toggle();
             });
-            $('body').click(function(event){
-                if(!$(event.target).closest('#openModal').length && !$(event.target).is('#openModal')) {
-                    $(".modalDialog").hide();
-                }     
-            });
-            $('.dropdownContainerForm').submit(function(event){
+            $('.dropdownContainerForm').submit(function(e){
                 console.log("form submitted");
-                event.preventDefault();
+                e.preventDefault();
             });
             // $('.boardOptionContainer').click(function(){
             //     // console.log("div form submitted");
@@ -98,7 +94,6 @@
     </nav>
     <div class="container-fluid">
     <div class="row">
-        
         <?php 
             require('includes/mysqli_connect.php');
             
@@ -277,7 +272,7 @@
                 <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
                 <div class="savePin" onclick="">Save</div>
             </div>
-            <img class="pinImg" src="images/paris.jpg"/>
+            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/02/21/18/52/paris-4011964_960_720.jpg"/>
             <a href="" class="ellipses">...</a>
         </div>
         <div class="col-auto text-center pin">
@@ -285,7 +280,7 @@
                 <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
                 <div class="savePin" onclick="">Save</div>
             </div>
-            <img class="pinImg" src="images/roadway.jpg"/>
+            <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/01/19/16/53/roadway-1149449_960_720.jpg"/>
             <a href="" class="ellipses">...</a>
         </div>
         <div class="col-auto text-center pin">

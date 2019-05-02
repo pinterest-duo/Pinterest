@@ -41,10 +41,6 @@
 .ellipses:hover{
     background-color: #e4e4e4;
 }
-.pin:hover .dropdownContainer, .pin:hover .saveContainer{
-    display: block;
-}
-
 
 /* Save Pin Buttons */
 .savePin, .savePinwImg, .savePinBoard{
@@ -64,7 +60,7 @@
     border-radius: 10px;
     cursor: pointer;
 }
-.savePinwImg:focus, .savePin:focus, .savePinBoard:hover{
+.savePinwImg:focus, .savePin:focus, .savePinBoard:focus{
     outline: none;
 }
 .savePinBoard{
@@ -125,9 +121,9 @@
     width: 25px;
     margin: 0;
 }
-.dropdownContainer{
+/* .dropdownContainer{
     display:none;
-}
+} */
 /* The top and bottom halves of the
  dropdown need these same properties */
 .boardSelectionContainer{
