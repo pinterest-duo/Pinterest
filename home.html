@@ -32,7 +32,20 @@
                 console.log("form submitted");
                 e.preventDefault();
             });
+            // $('.boardOptionContainer').click(function(){
+            //     // console.log("div form submitted");
+            //     this.parentNode.submit(function(e){
+            //         console.log("form submitted");
+            //         e.preventDefault();
+            //     });
+            // });
         });
+        // function submitPinForm(){
+        //     this.parentNode.submit(function(e){
+        //         console.log("form submitted");
+        //         e.preventDefault();
+        //     });
+        // };
     </script>
 </head>
 
@@ -76,10 +89,11 @@
             <div class="dropdownContainer">
                 <!-- The dropdown "button" -->
                 <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <form class="dropdownContainerForm" action="" method="POST">
+                <form class="dropdownContainerForm" action="save_pin.php" method="POST">
                     <!-- Pin and board ids will be populated using PHP -->
-                    <input type="hidden" value="pin_id" name="pin_id">
-                    <input type="hidden" value="board_id" name="board_id">
+                    <input type="hidden" value="0" name="pin_id">
+                    <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" name="pin_url">
+                    <input type="hidden" value="0" name="board_id">
                     <input type="submit" class="savePin" value="Save">
                 </form>
 
@@ -97,44 +111,18 @@
                         <h4 class="allBoardsText">All boards</h4>
                         
                         <!-- Each item in the dropdown selection: TO BE POPULATED VIA PHP-->
-                        <div class="boardOptionContainer">
-                            <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
-                            <p class="boardNameDropdown">Board 2</p>
-                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
-                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
+                        <form class="dropdownContainerForm dropdownOptionForm" action="save_pin.php" method="POST">
+                            <div class="boardOptionContainer">
+                                <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
+                                <p class="boardNameDropdown">Board 2</p>
+                                <!-- <div class="savePinBoard" onclick="">Save</div> -->
                                 <!-- Pin and board ids will be populated using PHP -->
-                                <input type="hidden" value="pin_id" name="pin_id">
-                                <input type="hidden" value="board_id" name="board_id">
+                                <input type="hidden" value="0" name="pin_id">
+                                <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" name="pin_url">
+                                <input type="hidden" value="0" name="board_id">
                                 <input type="submit" class="savePinBoard" value="Save">
-                            </form>
-                        </div>
-
-                        <div class="boardOptionContainer">
-                            <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
-                            <p class="boardNameDropdown">Board 3</p>
-                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
-                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
-                                <!-- Pin and board ids will be populated using PHP -->
-                                <input type="hidden" value="pin_id" name="pin_id">
-                                <input type="hidden" value="board_id" name="board_id">
-                                <input type="submit" class="savePinBoard" value="Save">
-                            </form>
-                        </div>
-                        <div class="boardOptionContainer">
-                            <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
-                            <p class="boardNameDropdown">Board 4</p>
-                            <!-- <div class="savePinBoard" onclick="">Save</div> -->
-                            <form class="dropdownContainerForm dropdownOptionForm" action="" method="POST">
-                                <!-- Pin and board ids will be populated using PHP -->
-                                <input type="hidden" value="pin_id" name="pin_id">
-                                <input type="hidden" value="board_id" name="board_id">
-                                <input type="submit" class="savePinBoard" value="Save">
-                            </form>
-                        </div>
-                        <!-- <div class="boardSelectionBottomCreate">
-                            <div class="createButton">+</div>
-                            <p>Create Board</p>
-                        </div> -->
+                            </div>
+                        </form>
                     </div>
                     <div class="boardSelectionBottomCreate">
                         <div class="createButton">+</div>
@@ -161,6 +149,7 @@
         <div class="col-auto text-center pin">
             <!-- Save pin button only if user has no boards yet -->
             <div class="saveContainer">
+                <!-- This should trigger a create a board popup -->
                 <div class="savePinwImg" onclick=""><img class="pinIcon" src="images/pinButton.png"/>Save</div>
             </div>
             <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/>

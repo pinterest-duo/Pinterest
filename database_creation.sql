@@ -24,7 +24,7 @@ CREATE TABLE boards(
     category VARCHAR(50),
     cover_pin_url VARCHAR(200),
     secret_board TINYINT UNSIGNED NOT NULL DEFAULT 0,
-    board_date DATETIME NOT NULL,
+    board_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(board_id),
     user_id INT UNSIGNED,
     FOREIGN KEY (user_id)
@@ -45,3 +45,8 @@ CREATE TABLE pins(
         REFERENCES users(user_id)
         ON DELETE CASCADE
 );
+
+-- Test data
+INSERT INTO users VALUES(0, 'test_user', 'test@test.com', 'pass', '21', 'test', 'test', 'female', 'English', 'United States', 'New York', NULL);
+
+INSERT INTO boards(board_id, board_name, secret_board, user_id) VALUES(0, 'test_board', 0, 0)

@@ -21,6 +21,7 @@
     border-radius: 10px;
     display: block;
     background-color: #000000;
+    cursor: zoom-in;
 }
 .pin:hover .pinImg{
     opacity: 0.9;
@@ -61,6 +62,7 @@
 .savePinwImg{
     width: 80px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .savePinwImg:focus, .savePin:focus, .savePinBoard:hover{
     outline: none;
@@ -208,18 +210,20 @@
     padding-left: 22px;
     position: relative;
     border-radius: 0 0 10px 10px;
+    cursor: pointer;
 }
 .boardSelectionBottomCreate p{
     font-weight: bold;
     text-align: start;
     padding-left: 50px;
+    padding-top: 5px;
     color: #333333;
 }
 .createButton{
     border-radius: 30px;
     height: 30px;
     width: 30px;
-    background-color: #ff0000;
+    background-color: #f90000;
     color: white;
     font-size: 30px;
     line-height: 25px;
