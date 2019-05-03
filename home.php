@@ -13,16 +13,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
-            // $('.dropdownContainer').toggle();
-            
-            // $('.pin').hover(function(){
-            //     // $('.dropdownContainer').css({'visibility': 'visible'});
-            //     $('.dropdownContainer').toggle();
-            // });
-            // var boarddd = document.getElementsByClassName('boardDropdown')
-            // boarddd.addEventListener("click", function(){
-            //     $(this).parent().prev().find('.boardSelection').css({'display':'block'});
-            // });
             $('.pin').hover(
                 function(){
                     $(this).children(".dropdownContainer").css({'display':'block'});
@@ -37,50 +27,46 @@
                 $('.boardSelectionContainer').toggle();
                 // $('.pin').unbind('mouseenter mouseleave');
             });
-            // $('body').click(function(event){
-            //     if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
-            //         $(".dropdownContainer").hide();
-            //         $('.pin').on('mouseenter mouseleave');
-            //     }
-            // });
-            $('.dropdownContainerForm').submit(function(event){
-                console.log("form submitted");
-                // event.preventDefault();
-            });
 
-            // $('.savePinBoard').click(function(){
-            //     var pin_Url = $(this).children('input.pin_url').val();
-            //     var board_id = $(this).children('input.board_id').val();
-            //     var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
+            /* $('body').click(function(event){
+                if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
+                    $(".dropdownContainer").hide();
+                    $('.pin').on('mouseenter mouseleave');
+                }
+            }); */
 
-                // console.log("form submitted");
-            //     $.ajax({
-            //         type: "POST",
-            //         url: "save_pin.php", 
-            //         data: dataString,
-            //         success: function(){
-            //             $(this).parentNode(".dropdownContainer").css({'display':'none'});
-            //         }
-            //     });
-            //     return false;
+            // $('.dropdownContainerForm').submit(function(event){
+            //     console.log("form submitted");
             //     // event.preventDefault();
-            //     // });
             // });
-            // $('.boardOptionContainer').click(function(){
-            //     // console.log("div form submitted");
-            //     this.parentNode.submit(function(e){
-            //         console.log("form submitted");
-            //         e.preventDefault();
-            //     });
-            // });
+
+            /* $('.savePinBoard').click(function(){
+                var pin_Url = $(this).children('input.pin_url').val();
+                var board_id = $(this).children('input.board_id').val();
+                var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
+
+                console.log("form submitted");
+                $.ajax({
+                    type: "POST",
+                    url: "save_pin.php", 
+                    data: dataString,
+                    success: function(){
+                        $(this).parentNode(".dropdownContainer").css({'display':'none'});
+                    }
+                });
+                return false;
+                // event.preventDefault();
+            }); */
+
+            /* $('.boardOptionContainer').click(function(){
+                // console.log("div form submitted");
+                this.parentNode.submit(function(e){
+                    console.log("form submitted");
+                    e.preventDefault();
+                });
+            }); */
             
         });
-        // function submitPinForm(){
-        //     this.parentNode.submit(function(e){
-        //         console.log("form submitted");
-        //         e.preventDefault();
-        //     });
-        // };
     </script>
     <?php 
     // require('save_pin.php');
@@ -136,22 +122,11 @@
                     array_push($boards, $board_row['board_name']);
                     array_push($boardImgs, $board_row['cover_pin_url']);
                 }
-            }
-            // print_r($boards);   
-            // print_r($boardImgs);   
-            // echo "<br>";
-            
+            }            
             // Get ALL pins from the database 
             $pin_query = "SELECT * FROM pins;";
             $pin_run = mysqli_query($dbc, $pin_query);
             // $numPins = mysqli_num_rows($pin_run);
-            
-            // Debugging Check: can grab pins
-            // $pins = array();
-            // while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
-            //     array_push($pins, $row['pin_id']);
-            // }
-            // print_r($pins);
                 
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
@@ -161,7 +136,7 @@
                     <div class="dropdownContainer">
                         <!-- The dropdown "button" -->
                         <div class="boardDropdown">'.$boards[0].'<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                        <form class="dropdownContainerForm" action="home.php" method="POST">
+                        <form class="dropdownContainerForm" action="save_pin.php" method="POST">
                             <!-- Pin and board ids will be populated using PHP -->
                             <input type="hidden" value="'.$row['pin_id'].'" name="pin_id">
                             <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
@@ -185,7 +160,7 @@
                     $currBoard = 0;
                     foreach($boards as $board){
                         echo '                        
-                        <form class="dropdownContainerForm dropdownOptionForm" action="home.php" method="POST">
+                        <form class="dropdownContainerForm dropdownOptionForm" action="save_pin.php" method="POST">
                             <div class="boardOptionContainer">
                                 <img src="'.$boardImgs[$currBoard].'" class="boardThumb">
                                 <p class="boardNameDropdown">'.$board.'</p>
@@ -220,7 +195,7 @@
 
 <!-- HTML BEGINS HERE -->
 
-        <div class="col-auto text-center pin">
+        <div class="col-auto text-center pin noshow">
             <!-- Display dropdown menus at the top of the pin -->
             <div class="dropdownContainer">
                 <!-- The dropdown "button" -->
@@ -271,17 +246,8 @@
             <img class="pinImg" src="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"/>
             <a href="" class="ellipses">...</a>
         </div>
-        
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
 
-        <div class="col-auto text-center pin">
+        <div class="col-auto text-center pin noshow">
             <!-- Save pin button only if user has no boards yet -->
             <div class="saveContainer">
                 <!-- This should trigger a create a board popup -->
@@ -291,110 +257,6 @@
             <a href="" class="ellipses">...</a>
         </div>
 
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="images/paris.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="images/roadway.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
-        <div class="col-auto text-center pin">
-            <div class="dropdownContainer">
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <div class="savePin" onclick="">Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2019/04/21/01/12/chrysanthemum-4143241_960_720.jpg">
-            <a href="" class="ellipses">...</a>
-        </div>
         <?php mysqli_close($dbc);?>
         <!-- <?php ?> -->
     </div>

@@ -24,7 +24,7 @@
     cursor: zoom-in;
 }
 .pin:hover .pinImg{
-    opacity: 0.9;
+    opacity: 0.7;
 }
 .pin a.ellipses{
     margin: 5px 0 0 0;
@@ -229,4 +229,7 @@
     line-height: 25px;
     padding: 0 5px;
     float: left;
+}
+.noshow{
+    display:none;
 }

@@ -54,6 +54,11 @@ INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
 INSERT INTO boards(board_name, user_id) VALUES('test_board2', 1);
 
 INSERT INTO pins(pin_url, board_id, user_id) VALUES('google.com','1','1');
+INSERT INTO pins(pin_url, board_id, user_id) VALUES
+('images/paris.jpg','1','1'),
+('images/palm-tree.jpg','1','1'),
+('images/bicycle.jpg','1','1'),
+('images/roadway.jpg','1','1'),
 
 
 DELETE FROM users WHERE user_id='1';
