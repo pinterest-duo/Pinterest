@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
     <link rel="icon" href="images/pinterest_logo.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <?php 
@@ -70,9 +71,6 @@
             $pin_query = "SELECT * FROM pins ORDER BY pin_date DESC;";
             $pin_run = mysqli_query($dbc, $pin_query);
             $numPins = mysqli_num_rows($pin_run);
-            
-            // $rowRaw = mysqli_fetch_array($pin_run, MYSQLI_ASSOC);
-            // $row = array_reverse($rowRaw, true);
             
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
@@ -246,28 +244,25 @@
                 }
             }); */
 
-            // $('.dropdownContainerForm').submit(function(event){
-            //     console.log("form submitted");
-            //     // event.preventDefault();
-            // });
-
-            /* $('.savePinBoard').click(function(){
-                var pin_Url = $(this).children('input.pin_url').val();
-                var board_id = $(this).children('input.board_id').val();
-                var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
-
-                console.log("form submitted");
+            $('.dropdownContainerForm').submit(function(event){
+                console.log("form not submitted");
+                
+                // Stop the page from refreshing when the form submits
+                event.preventDefault();
+                
                 $.ajax({
+                    url : "save_pin.php",
                     type: "POST",
-                    url: "save_pin.php", 
-                    data: dataString,
-                    success: function(){
-                        $(this).parentNode(".dropdownContainer").css({'display':'none'});
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        console.log("pin has been saved");
+                    },
+                    error: function (jXHR, textStatus, errorThrown) {
+                        console.log("error: " + errorThrown);
                     }
                 });
-                return false;
-                // event.preventDefault();
-            }); */
+                
+            });
             
         });
     </script>
