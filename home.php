@@ -11,63 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
-            $('.pin').hover(
-                function(){
-                    $(this).children(".dropdownContainer").css({'display':'block'});
-                    $(this).children(".saveContainer").css({'display':'block'});
-                },
-                function () {
-                    $(this).children(".dropdownContainer").css({'display':'none'});
-                    $(this).children(".saveContainer").css({'display':'none'});
-                }
-            );
-            $('.boardDropdown').click(function(){
-                $('.boardSelectionContainer').toggle();
-                // $('.pin').unbind('mouseenter mouseleave');
-            });
-
-            /* $('body').click(function(event){
-                if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
-                    $(".dropdownContainer").hide();
-                    $('.pin').on('mouseenter mouseleave');
-                }
-            }); */
-
-            // $('.dropdownContainerForm').submit(function(event){
-            //     console.log("form submitted");
-            //     // event.preventDefault();
-            // });
-
-            /* $('.savePinBoard').click(function(){
-                var pin_Url = $(this).children('input.pin_url').val();
-                var board_id = $(this).children('input.board_id').val();
-                var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
-
-                console.log("form submitted");
-                $.ajax({
-                    type: "POST",
-                    url: "save_pin.php", 
-                    data: dataString,
-                    success: function(){
-                        $(this).parentNode(".dropdownContainer").css({'display':'none'});
-                    }
-                });
-                return false;
-                // event.preventDefault();
-            }); */
-
-            /* $('.boardOptionContainer').click(function(){
-                // console.log("div form submitted");
-                this.parentNode.submit(function(e){
-                    console.log("form submitted");
-                    e.preventDefault();
-                });
-            }); */
-            
-        });
-    </script>
     <?php 
     // require('save_pin.php');
     ?>
@@ -78,27 +21,27 @@
         <a class="navbar-brand" href="home.html"><img src="images/pinterest_logo.png" alt="Pinterest" height="27px"></a>
         <input class="form-control mr-lg-2 searchBar" id="searchBar" type="search" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="home.html">Home</a>
+            <li class="nav-item active" id="homeLink">
+                <a class="nav-link" href="home.php">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="followingLink">
                 <a class="nav-link" href="#">Following</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="profileImgLink">
                 <!-- Replace with actual user pic -->
                 <a class="nav-link" href="profile.html"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="profileLink">
                 <!-- Replace Username with actual username -->
                 <a class="nav-link" href="profile.html">Username</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="messagesLink">
                 <a class="nav-link" href="">Messages</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="notificationsLink">
                 <a class="nav-link" href="">Notifications</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="moreLink">
                 <a class="nav-link navEllipse" href="">...</a>
             </li>
         </ul>
@@ -124,10 +67,13 @@
                 }
             }            
             // Get ALL pins from the database 
-            $pin_query = "SELECT * FROM pins;";
+            $pin_query = "SELECT * FROM pins ORDER BY pin_date DESC;";
             $pin_run = mysqli_query($dbc, $pin_query);
-            // $numPins = mysqli_num_rows($pin_run);
-                
+            $numPins = mysqli_num_rows($pin_run);
+            
+            // $rowRaw = mysqli_fetch_array($pin_run, MYSQLI_ASSOC);
+            // $row = array_reverse($rowRaw, true);
+            
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
                 echo '<div class="col-auto text-center pin">';
@@ -191,6 +137,7 @@
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
+            mysqli_close($dbc);
         ?>
 
 <!-- HTML BEGINS HERE -->
@@ -257,7 +204,7 @@
             <a href="" class="ellipses">...</a>
         </div>
 
-        <?php mysqli_close($dbc);?>
+        
         <!-- <?php ?> -->
     </div>
         
@@ -275,6 +222,55 @@
             <li>More</li>
         </ul>
     </div> -->
+    <script>
+        $(document).ready(function(){
+            $('.pin').hover(
+                function(){
+                    $(this).children(".dropdownContainer").css({'display':'block'});
+                    $(this).children(".saveContainer").css({'display':'block'});
+                },
+                function () {
+                    $(this).children(".dropdownContainer").css({'display':'none'});
+                    $(this).children(".saveContainer").css({'display':'none'});
+                }
+            );
+            $('.boardDropdown').click(function(){
+                $('.boardSelectionContainer').toggle();
+                // $('.pin').unbind('mouseenter mouseleave');
+            });
+
+            /* $('body').click(function(event){
+                if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
+                    $(".dropdownContainer").hide();
+                    $('.pin').on('mouseenter mouseleave');
+                }
+            }); */
+
+            // $('.dropdownContainerForm').submit(function(event){
+            //     console.log("form submitted");
+            //     // event.preventDefault();
+            // });
+
+            /* $('.savePinBoard').click(function(){
+                var pin_Url = $(this).children('input.pin_url').val();
+                var board_id = $(this).children('input.board_id').val();
+                var dataString = 'pin_Url' + pin_Url + '&board_id' + board_id;
+
+                console.log("form submitted");
+                $.ajax({
+                    type: "POST",
+                    url: "save_pin.php", 
+                    data: dataString,
+                    success: function(){
+                        $(this).parentNode(".dropdownContainer").css({'display':'none'});
+                    }
+                });
+                return false;
+                // event.preventDefault();
+            }); */
+            
+        });
+    </script>
 </body>
 
 </html>

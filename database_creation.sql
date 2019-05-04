@@ -58,7 +58,7 @@ INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('images/paris.jpg','1','1'),
 ('images/palm-tree.jpg','1','1'),
 ('images/bicycle.jpg','1','1'),
-('images/roadway.jpg','1','1'),
+('images/roadway.jpg','1','1');
 
 
 DELETE FROM users WHERE user_id='1';
