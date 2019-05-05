@@ -15,7 +15,7 @@ nav.navbar{
 /* nav.navbarsticky-top.navbar-expand.navbar-light li a{
     color: #ff0000;
 } */
-nav.navbar input.searchBar, .boardSelection input.searchBar{
+nav.navbar input.searchBar, .boardSelection input.searchBar, .searchBar{
     background-color: #efefef;
     background-image: url('searchIcon.png');
     background-size: 20px;
@@ -48,7 +48,7 @@ nav.navbar input:focus{
     color: #333333;
 }
 .nav-item img{
-    border: 1px red solid;
+    /* border: 1px red solid; */
     display: block;
     float: left;
     margin: 0;

@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/board_modal.css" type="text/css"/>
     <link rel="icon" href="images/pinterest_logo.ico"/>
 </head>
@@ -27,12 +27,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="" id="followingLink">Following</a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="profile.html" id="profileImgLink"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
-            </li> -->
+            </li>
             <li class="nav-item">
                 <!-- Replace Username with actual username -->
-                <img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/>
+                <!-- <img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/> -->
                 <a class="nav-link" href="profile.html" id="profileLink">Username</a>
             </li>
             <li class="nav-item">
@@ -232,7 +232,25 @@
         <div class="createBoardFoot">
             <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
             <div class="createBoard_WordAside">
-                <div class="createBoard_PinTitle"></div>
+
+            <form class="createBoard_Form">
+                <div class="createBoard_Input">
+                    <label class="suggestedBoardNames" for="board_name">Name</label>
+                    <input class="boardNameField" name="board_name" type="text"/>
+                </div>
+                <div class="createBoard_Input">
+                    <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
+                    <label class="switch">
+                        <input class="secretSwitch" type="checkbox" value="yes">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="createBoard_Input">
+                    <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
+                    <input class="searchBar" name="board_name" type="text" placeholder="Search by name or email"/>
+                </div>
+
+
                 <div class="createBoard_belowTitle">
                     <div class="createButtonBoard">
                         <div class="createButtonModal">+</div>
@@ -259,8 +277,9 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
+
+            </form>
             </div>
         </div>
     </div> 
@@ -319,6 +338,10 @@
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
             });
+
+            $('.createButtonBoard').hide();
+            $('.suggestedBoardNamesContainer').hide();
+            $('.createBoard_PinTitle').hide();
         });
     </script>
 </body>
