@@ -2,21 +2,21 @@
 /* Create Board CSS */
 /* The Modal (background) */
 .modal{
-    /* display: none; */
-    display: block;
+    display: none;
     position: fixed;
     z-index: 5000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    width: 100%;
+    height: 100%;
+    background-color: rgba(49, 49, 49, 0.863);
+}
+.modal:hover{
+    cursor: zoom-out;
+}
 .createBoard{
+    display: none;
     background-color: #ffffff;
-    
     z-index: 5001;
     position: absolute;
     width: 800px;
@@ -28,13 +28,11 @@
     border-radius: 8px;
     color: #333333;
     overflow: auto;
-    /* background-color: #0026ff86; */
 }
 .createBoardTitle{
     padding: 20px;
     padding-bottom: 10px;
     border-bottom: 1px #f2f2f2 solid;
-    /* background-color: #ff000044; */
     position: absolute;
     top: 0;
     width: 100%;

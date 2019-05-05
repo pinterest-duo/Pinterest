@@ -279,14 +279,6 @@
                 // $('.pin').unbind('mouseenter mouseleave');
             });
 
-            /* // Code for modals
-            $('body').click(function(event){
-                if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
-                    $(".dropdownContainer").hide();
-                    $('.pin').on('mouseenter mouseleave');
-                }
-            }); */
-
             $('.dropdownContainerForm').submit(function(event){
                 console.log("form not submitted");
 
@@ -308,7 +300,32 @@
                 });
                 
             });
+
+            // Modal Display and exit
+            $('.boardSelectionBottomCreate').click(function(){
+                $('.modal').show();
+                $('.createBoard').show();
+            });
+
+            $('.modalCloseBtn').click(function(){
+                $('.modal').hide();
+                $('.createBoard').hide();
+            });
+            $('.modal').click(function(){
+                $('.modal').hide();
+                $('.createBoard').hide();
+            });
             
+            // // Code for modals
+            // $('body').click(function(event){
+            //     var container = $("createBoard");
+
+            //     // if the target of the click isn't the container nor a descendant of the container
+            //     if (!container.is(e.target) && container.has(e.target).length === 0) 
+            //     {
+            //         container.hide();
+            //     }
+            // });
         });
     </script>
 </body>
