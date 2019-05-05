@@ -32,7 +32,7 @@
             </li> -->
             <li class="nav-item">
                 <!-- Replace Username with actual username -->
-                <div><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/></div>
+                <img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/>
                 <a class="nav-link" href="profile.html" id="profileLink">Username</a>
             </li>
             <li class="nav-item">

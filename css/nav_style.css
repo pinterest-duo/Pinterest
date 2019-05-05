@@ -49,8 +49,11 @@ nav.navbar input:focus{
 }
 .nav-item img{
     border: 1px red solid;
-    /* display: inherit; */
-    /* float: left; */
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
 }
 .nav-item{
     border-radius: 40px;
