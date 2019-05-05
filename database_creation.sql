@@ -14,6 +14,7 @@ CREATE TABLE users(
     user_language VARCHAR(20) NOT NULL,
     country VARCHAR(20) NOT NULL,
     user_location VARCHAR(30) NOT NULL,
+    user_image VARCHAR(200),
     reg_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(user_id)
 );
