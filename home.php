@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- PINS STILL NEED TO BE WITH BLACK BACKGROUND/OVERLAY ON HOVER -->
     <title>Pinterest</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,32 +17,32 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand navbar-light">
+    <nav class="navbar sticky-top navbar-expand navbar-custom">
         <a class="navbar-brand" href="home.html"><img src="images/pinterest_logo.png" alt="Pinterest" height="27px"></a>
         <input class="form-control mr-lg-2 searchBar" id="searchBar" type="search" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active" id="homeLink">
-                <a class="nav-link" href="home.php">Home</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="home.php" id="homeLink">Home</a>
             </li>
-            <li class="nav-item" id="followingLink">
-                <a class="nav-link" href="#">Following</a>
+            <li class="nav-item">
+                <a class="nav-link" href="" id="followingLink">Following</a>
             </li>
-            <li class="nav-item" id="profileImgLink">
-                <!-- Replace with actual user pic -->
-                <a class="nav-link" href="profile.html"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
-            </li>
-            <li class="nav-item" id="profileLink">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="profile.html" id="profileImgLink"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
+            </li> -->
+            <li class="nav-item">
                 <!-- Replace Username with actual username -->
-                <a class="nav-link" href="profile.html">Username</a>
+                <div><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/></div>
+                <a class="nav-link" href="profile.html" id="profileLink">Username</a>
             </li>
-            <li class="nav-item" id="messagesLink">
-                <a class="nav-link" href="">Messages</a>
+            <li class="nav-item">
+                <a class="nav-link" href="" id="messagesLink">Messages</a>
             </li>
-            <li class="nav-item" id="notificationsLink">
-                <a class="nav-link" href="">Notifications</a>
+            <li class="nav-item">
+                <a class="nav-link" href="" id="notificationsLink">Notifications</a>
             </li>
-            <li class="nav-item" id="moreLink">
-                <a class="nav-link navEllipse" href="">...</a>
+            <li class="nav-item">
+                <a class="nav-link navEllipse" href="" id="moreLink">...</a>
             </li>
         </ul>
     </nav>
@@ -229,34 +230,36 @@
             <div class="modalCloseBtn">x</div>
         </div>
         <div class="createBoardFoot">
-        <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
-        <div class="createBoard_WordAside">
-            <div class="createBoard_PinTitle"></div>
-            <div class="createBoard_belowTitle">
-                <div class="createButtonBoard">
-                    <div class="createButtonModal">+</div>
-                    <h5>Create Board</h5>
-                </div>
-                <div class="suggestedBoardNamesContainer">
-                    <div class="suggestedBoardNames">
-                        <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
-                        <div class="suggestedBoardName">
-                            <div class="addBoardName">+</div>
-                            <p>Suggestion 1</p>
-                        </div>
-                        <div class="suggestedBoardName">
-                            <div class="addBoardName">+</div>
-                            <p>Suggestion 2</p>
-                        </div>
-                        <div class="suggestedBoardName">
-                            <div class="addBoardName">+</div>
-                            <p>Suggestion 3</p>
-                        </div>
-                        <div class="suggestedBoardName">
-                            <div class="addBoardName">+</div>
-                            <p>Suggestion 4</p>
+            <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
+            <div class="createBoard_WordAside">
+                <div class="createBoard_PinTitle"></div>
+                <div class="createBoard_belowTitle">
+                    <div class="createButtonBoard">
+                        <div class="createButtonModal">+</div>
+                        <h5>Create Board</h5>
+                    </div>
+                    <div class="suggestedBoardNamesContainer">
+                        <div class="suggestedBoardNames">
+                            <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
+                            <div class="suggestedBoardName">
+                                <div class="addBoardName">+</div>
+                                <p>Suggestion 1</p>
+                            </div>
+                            <div class="suggestedBoardName">
+                                <div class="addBoardName">+</div>
+                                <p>Suggestion 2</p>
+                            </div>
+                            <div class="suggestedBoardName">
+                                <div class="addBoardName">+</div>
+                                <p>Suggestion 3</p>
+                            </div>
+                            <div class="suggestedBoardName">
+                                <div class="addBoardName">+</div>
+                                <p>Suggestion 4</p>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -314,6 +317,7 @@
             $('.modal').click(function(){
                 $('.modal').hide();
                 $('.createBoard').hide();
+                $('.boardSelectionContainer').toggle();
             });
         });
     </script>

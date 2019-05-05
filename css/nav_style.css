@@ -38,6 +38,25 @@ nav.navbar input:focus{
     border-radius: 25px;
     display: inline;
 }
-
+#profileImgLink{
+    padding-right:0;
+}
+.nav-link, .nav-link:hover{
+    color: rgba(0,0,0,.5);
+}
+.active>.nav-link{
+    color: #333333;
+}
+.nav-item img{
+    border: 1px red solid;
+    /* display: inherit; */
+    /* float: left; */
+}
+.nav-item{
+    border-radius: 40px;
+}
+.nav-item:hover{
+    background-color: #f0f0f0;
+}
 /* Creating the nav without bootstrap */
 /* #nav{
