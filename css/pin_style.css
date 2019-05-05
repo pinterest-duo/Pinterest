@@ -25,6 +25,7 @@
 }
 .pin:hover .pinImg{
     opacity: 0.7;
+    background-color: #000000;
 }
 .pin a.ellipses{
     margin: 5px 0 0 0;

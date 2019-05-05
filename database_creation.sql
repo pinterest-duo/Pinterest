@@ -48,7 +48,8 @@ CREATE TABLE pins(
 );
 
 -- Test data
-INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) VALUES(1, 'test_user', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
+INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) 
+VALUES(1, 'test_user', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
 
 INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
 INSERT INTO boards(board_name, user_id) VALUES('test_board2', 1);

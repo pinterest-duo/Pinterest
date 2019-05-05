@@ -298,7 +298,6 @@
                         console.log("error: " + errorThrown);
                     }
                 });
-                
             });
 
             // Modal Display and exit
@@ -310,22 +309,12 @@
             $('.modalCloseBtn').click(function(){
                 $('.modal').hide();
                 $('.createBoard').hide();
+                $('.boardSelectionContainer').toggle();
             });
             $('.modal').click(function(){
                 $('.modal').hide();
                 $('.createBoard').hide();
             });
-            
-            // // Code for modals
-            // $('body').click(function(event){
-            //     var container = $("createBoard");
-
-            //     // if the target of the click isn't the container nor a descendant of the container
-            //     if (!container.is(e.target) && container.has(e.target).length === 0) 
-            //     {
-            //         container.hide();
-            //     }
-            // });
         });
     </script>
 </body>
