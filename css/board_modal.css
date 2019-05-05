@@ -1,3 +1,4 @@
+
 /* Create Board CSS */
 /* The Modal (background) */
 .modal{
@@ -26,6 +27,7 @@
     margin: auto;
     border-radius: 8px;
     color: #333333;
+    overflow: auto;
 }
 .createBoardTitle{
     padding: 20px;
@@ -52,8 +54,12 @@
 }
 .createBoard_PinAside{
     border-right: 1px #f2f2f2 solid;
-    float: left;
-    height: 100%;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    bottom: 0;
+    /* float: left; */
+    /* height: 100%; */
     padding: 13px 50px;
     width: 40%;
 }
@@ -67,7 +73,11 @@
     font-weight: bold;
 }
 .createBoard_WordAside{
-    float: left;
+    /* float: left; */
+    position: absolute;
+    top: 66px;
+    right: 0;
+    bottom: 0;
     width: 60%;
     height: 100%;
 }
