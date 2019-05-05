@@ -228,6 +228,7 @@
             <h2>Choose board</h2>
             <div class="modalCloseBtn">x</div>
         </div>
+        <div class="createBoardFoot">
         <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
         <div class="createBoard_WordAside">
             <div class="createBoard_PinTitle"></div>

@@ -28,15 +28,24 @@
     border-radius: 8px;
     color: #333333;
     overflow: auto;
+    /* background-color: #0026ff86; */
 }
 .createBoardTitle{
     padding: 20px;
     padding-bottom: 10px;
     border-bottom: 1px #f2f2f2 solid;
+    /* background-color: #ff000044; */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 67px;
+    border-radius: 8px 8px 0 0;
+}
+.createBoardFoot{
+    overflow: auto;
 }
 .modalCloseBtn{
     color: #8e8e8e;
-    /* border: solid 2px #b700ff; */
     border-radius: 30px;
     font-size: 150%;
     line-height: 20px;
@@ -58,10 +67,9 @@
     top: 66px;
     left: 0;
     bottom: 0;
-    /* float: left; */
-    /* height: 100%; */
     padding: 13px 50px;
     width: 40%;
+    /* border: solid 2px #b700ff; */
 }
 .createBoard_PinAside img{
     width: 100%;
@@ -73,13 +81,11 @@
     font-weight: bold;
 }
 .createBoard_WordAside{
-    /* float: left; */
     position: absolute;
     top: 66px;
     right: 0;
     bottom: 0;
     width: 60%;
-    height: 100%;
 }
 .createBoard_PinTitle{
     border-bottom: 1px #f2f2f2 solid;
