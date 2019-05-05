@@ -1,0 +1,136 @@
+/* Create Board CSS */
+/* The Modal (background) */
+.modal{
+    /* display: none; */
+    display: block;
+    position: fixed;
+    z-index: 5000;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+.createBoard{
+    background-color: #ffffff;
+    
+    z-index: 5001;
+    position: absolute;
+    width: 800px;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 8px;
+    color: #333333;
+}
+.createBoardTitle{
+    padding: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px #f2f2f2 solid;
+}
+.modalCloseBtn{
+    color: #8e8e8e;
+    /* border: solid 2px #b700ff; */
+    border-radius: 30px;
+    font-size: 150%;
+    line-height: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 6px 14px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.modalCloseBtn:hover{
+    background-color: #f0f0f0;
+}
+.createBoard_PinAside{
+    border-right: 1px #f2f2f2 solid;
+    float: left;
+    height: 100%;
+    padding: 13px 50px;
+    width: 40%;
+}
+.createBoard_PinAside img{
+    width: 100%;
+    border-radius: 10px;
+}
+.createBoardTitle h2{
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+.createBoard_WordAside{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+.createBoard_PinTitle{
+    border-bottom: 1px #f2f2f2 solid;
+    min-height: 17px;
+}
+.createBoard_belowTitle h5{
+    font-size: 100%;
+    font-weight: bold;
+}
+.createButtonBoard{
+    padding: 20px 22px;
+}
+.createButtonBoard:hover, .suggestedBoardName:hover{
+    background-color: #efefef;
+    cursor: pointer;
+    color: #333333;
+}
+.createButtonModal{
+    border-radius: 30px;
+    height: 32px;
+    width: 32px;
+    background-color: #f90000;
+    color: white;
+    font-size: 30px;
+    line-height: 25px;
+    padding: 0 7px;
+    float: left;
+}
+.createButtonBoard h5{
+    margin-left: 45px;
+    padding-top: 7px;
+}
+/* must come before styling for h5 */
+.suggestedBoardNamesContainer{
+    padding: 12px 0;
+    font-size: 100%;
+    color: #8e8e8e;
+    font-weight: bold;
+}
+h5.suggestedBoardNamesTitle{
+    font-weight: normal;
+    font-size: 95%;
+    color: #333333;
+}
+.suggestedBoardNamesTitle{
+    padding-left: 20px;
+}
+.addBoardName{
+    float: left;
+    font-size: 210%;
+    font-weight: normal;
+    padding-left: 20px;
+    line-height: 25px;
+}
+.suggestedBoardName{
+    padding-top: 5px;
+    padding-bottom: 1px;
+}
+.suggestedBoardName p{
+    font-size: 110%;
+    padding-top: 3px;
+    padding-left: 50px;
+    height: 20px;
+}

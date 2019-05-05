@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
-    <link rel="icon" href="images/pinterest_logo.ico"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <?php 
-    // require('save_pin.php');
-    ?>
+    <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/board_modal.css" type="text/css"/>
+    <link rel="icon" href="images/pinterest_logo.ico"/>
 </head>
 
 <body>
@@ -56,9 +54,12 @@
             // Get all of this user's board names from the database and put it into an array
             // ****(user 1 right now, replace with current user in future)*****
             $currentUser = 1;
+
+            // Create and run the query for getting the boards for this user
             $board_query = "SELECT board_name, cover_pin_url FROM boards WHERE user_id = $currentUser;";
             $board_run = mysqli_query($dbc, $board_query);
             $numBoards = mysqli_num_rows($board_run);
+            // If the user has boards, add them and their corresponsing cover image urls to arrays
             if($numBoards != 0){
                 $boards = array();
                 $boardImgs = array();
@@ -74,7 +75,7 @@
             
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
-                echo '<div class="col-auto text-center pin">';
+                echo '<div class="col-auto text-center pin" id="pin'.$row['pin_id'].'">';
                 if($numBoards != 0){
                     echo '
                     <div class="dropdownContainer">
@@ -114,7 +115,7 @@
                                 <input type="submit" class="savePinBoard" value="Save">
                             </div>
                         </form>';
-                        $currBoard = 0;
+                        $currBoard++;
                     }
                 echo '</div>
                         <div class="boardSelectionBottomCreate">
@@ -220,6 +221,46 @@
             <li>More</li>
         </ul>
     </div> -->
+    <div class="modal"></div>
+
+    <div class="createBoard">
+        <div class="createBoardTitle">
+            <h2>Choose board</h2>
+            <div class="modalCloseBtn">x</div>
+        </div>
+        <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
+        <div class="createBoard_WordAside">
+            <div class="createBoard_PinTitle"></div>
+            <div class="createBoard_belowTitle">
+                <div class="createButtonBoard">
+                    <div class="createButtonModal">+</div>
+                    <h5>Create Board</h5>
+                </div>
+                <div class="suggestedBoardNamesContainer">
+                    <div class="suggestedBoardNames">
+                        <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
+                        <div class="suggestedBoardName">
+                            <div class="addBoardName">+</div>
+                            <p>Suggestion 1</p>
+                        </div>
+                        <div class="suggestedBoardName">
+                            <div class="addBoardName">+</div>
+                            <p>Suggestion 2</p>
+                        </div>
+                        <div class="suggestedBoardName">
+                            <div class="addBoardName">+</div>
+                            <p>Suggestion 3</p>
+                        </div>
+                        <div class="suggestedBoardName">
+                            <div class="addBoardName">+</div>
+                            <p>Suggestion 4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
     <script>
         $(document).ready(function(){
             $('.pin').hover(
@@ -237,7 +278,8 @@
                 // $('.pin').unbind('mouseenter mouseleave');
             });
 
-            /* $('body').click(function(event){
+            /* // Code for modals
+            $('body').click(function(event){
                 if(!$(event.target).closest('.dropdownContainer').length && !$(event.target).is('.dropdownContainer')) {
                     $(".dropdownContainer").hide();
                     $('.pin').on('mouseenter mouseleave');
@@ -246,11 +288,13 @@
 
             $('.dropdownContainerForm').submit(function(event){
                 console.log("form not submitted");
-                
+
                 // Stop the page from refreshing when the form submits
                 event.preventDefault();
                 
+                // Save the pin to the database using ajax
                 $.ajax({
+                    // URL = location of the php to run on form submission
                     url : "save_pin.php",
                     type: "POST",
                     data: $(this).serialize(),
