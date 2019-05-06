@@ -229,60 +229,66 @@
             <h2>Choose board</h2>
             <div class="modalCloseBtn">x</div>
         </div>
-        <div class="createBoardFoot">
-            <div class="createBoard_PinAside"><img src="images/paris.jpg"/></div>
+        <div>
+            <div class="createBoard_PinAside">
+                <img src="images/paris.jpg"/>
+                <!-- Populated by pin, this value by default -->
+                <div class="createBoard_PinDesc"><p>Tell us about this Pin...</p><img src="images/edit.png" alt="Edit"/></div>
+                <form class="createBoard_Form">
+                    <textarea class="boardPinDescField" name="pin_desc" type="text" placeholder="Tell us about this Pin..."></textarea>  
+            </div>
             <div class="createBoard_WordAside">
-
-            <form class="createBoard_Form">
-                <div class="createBoard_Input">
-                    <label class="suggestedBoardNames" for="board_name">Name</label>
-                    <input class="boardNameField" name="board_name" type="text"/>
-                </div>
-                <div class="createBoard_Input">
-                    <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
-                    <label class="switch">
-                        <input class="secretSwitch" type="checkbox" value="yes">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="createBoard_Input">
-                    <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
-                    <input class="searchBar" name="board_name" type="text" placeholder="Search by name or email"/>
-                </div>
-
-
-                <div class="createBoard_belowTitle">
-                    <div class="createButtonBoard">
-                        <div class="createButtonModal">+</div>
-                        <h5>Create Board</h5>
+                <div class="createBoard_PinTitle"></div>
+                
+                    <div class="createBoard_Input">
+                        <label class="suggestedBoardNames" for="board_name">Name</label>
+                        <input class="boardNameField" name="board_name" type="text"/>
                     </div>
-                    <div class="suggestedBoardNamesContainer">
-                        <div class="suggestedBoardNames">
-                            <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
-                            <div class="suggestedBoardName">
-                                <div class="addBoardName">+</div>
-                                <p>Suggestion 1</p>
-                            </div>
-                            <div class="suggestedBoardName">
-                                <div class="addBoardName">+</div>
-                                <p>Suggestion 2</p>
-                            </div>
-                            <div class="suggestedBoardName">
-                                <div class="addBoardName">+</div>
-                                <p>Suggestion 3</p>
-                            </div>
-                            <div class="suggestedBoardName">
-                                <div class="addBoardName">+</div>
-                                <p>Suggestion 4</p>
+                    <div class="createBoard_Input">
+                        <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
+                        <label class="switch">
+                            <input class="secretSwitch" type="checkbox" value="yes">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="createBoard_Input">
+                        <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
+                        <input class="searchBar" name="board_name" type="text" placeholder="Search by name or email"/>
+                    </div>
+    
+
+                    <div class="createBoard_belowTitle">
+                        <div class="createButtonBoard">
+                            <div class="createButtonModal">+</div>
+                            <h5>Create Board</h5>
+                        </div>
+                        <div class="suggestedBoardNamesContainer">
+                            <div class="suggestedBoardNames">
+                                <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
+                                <div class="suggestedBoardName">
+                                    <div class="addBoardName">+</div>
+                                    <p>Suggestion 1</p>
+                                </div>
+                                <div class="suggestedBoardName">
+                                    <div class="addBoardName">+</div>
+                                    <p>Suggestion 2</p>
+                                </div>
+                                <div class="suggestedBoardName">
+                                    <div class="addBoardName">+</div>
+                                    <p>Suggestion 3</p>
+                                </div>
+                                <div class="suggestedBoardName">
+                                    <div class="addBoardName">+</div>
+                                    <p>Suggestion 4</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </form>
+                </form>
             </div>
         </div>
-    </div> 
+    </div>    
 
     <script>
         $(document).ready(function(){
@@ -339,9 +345,37 @@
                 $('.boardSelectionContainer').toggle();
             });
 
-            $('.createButtonBoard').hide();
-            $('.suggestedBoardNamesContainer').hide();
-            $('.createBoard_PinTitle').hide();
+            // Modal interactivity
+            $('.boardPinDescField').hide();
+
+            $('.createButtonBoard').click(function(){
+                $('.createBoard_Input').show();
+                $('.createButtonBoard').hide();
+                $('.suggestedBoardNamesContainer').hide();
+                $('.createBoard_PinTitle').hide();
+            });
+
+            $('.createBoard_PinDesc').click(function(){
+                $('.boardPinDescField').show();
+                $(this).hide();
+            });
+            $('.createBoard_PinDesc img').click(function(){
+                $('.boardPinDescField').show();
+                $(this).hide();
+            });
+            $('.boardPinDescField').blur(function(){
+                console.log($(this).val());
+                var pinDesc = ($(this).val());
+                // if(pinDesc != "" || pinDesc != " " || pinDesc != null){
+                    // var desc = $(this).parent().children('.createBoard_PinDesc p');
+                    // console.log(desc.val());
+                    // desc.innerHTML = pinDesc;
+                // }
+                // $('.createBoard_PinDesc p').html(pinDesc);
+                $('.createBoard_PinDesc p').html($(this).val());
+                $(this).hide();
+                $('.createBoard_PinDesc').show();
+            });
         });
     </script>
 </body>

@@ -92,7 +92,7 @@
 .createBoard_belowTitle h5{
     font-size: 100%;
     font-weight: bold;
-    height:
+    /* height: */
 }
 .createButtonBoard{
     padding: 14px 22px;
@@ -163,6 +163,7 @@ h5.suggestedBoardNamesTitle{
 }
 .createBoard_Input{
     padding: 12px;
+    display: none;
 }
 input.boardNameField{
     border: 1px solid #8f8f8f;
@@ -251,4 +252,38 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+
+.createBoard_PinDesc, .boardPinDescField{
+    width: 92%;
+    margin: 10px 4%;
+    font-size: 90%;
+}
+.createBoard_PinDesc{
+    color: #8e8e8e;
+}
+.createBoard_PinDesc p{
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.createBoard_PinDesc img{
+    width: 17px;
+    float: right;
+}
+.boardPinDescField{
+    /* display: none; */
+    min-height: 60px;
+}
+.boardPinDescField::placeholder{
+    font-size: 90%;
+    color: #999999;
+}
+.boardPinDescField:focus{
+    outline: none;
+}
+.createBoard_PinDesc:hover{
+    cursor: pointer;
 }

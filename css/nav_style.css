@@ -12,9 +12,6 @@ nav.navbar{
     width: 100%;
     font-weight: bold;
 }
-/* nav.navbarsticky-top.navbar-expand.navbar-light li a{
-    color: #ff0000;
-} */
 nav.navbar input.searchBar, .boardSelection input.searchBar, .searchBar{
     background-color: #efefef;
     background-image: url('searchIcon.png');
