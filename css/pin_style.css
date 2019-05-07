@@ -23,6 +23,16 @@
     padding: 0;
     margin: 0;
 }
+.pinBoard{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 120%;
+
+    color: white;
+    overflow: hidden;
+    display: none;
+}
 .pinImg{
     background-color: #000000;
     border-radius: 10px;

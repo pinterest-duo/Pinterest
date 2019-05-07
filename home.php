@@ -97,7 +97,10 @@
                 }
                 // Display the pin image
                 echo '
-                <div class="pinImg"><img class="pinImg" src="'.$row['pin_url'].'"/></div>    
+                <div class="pinImg">
+                    <p class="pinBoard"></p>
+                    <img class="pinImg" src="'.$row['pin_url'].'"/>
+                </div>    
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
@@ -217,6 +220,9 @@
                     }
                 });
                 $('.boardSelectionContainer').hide();
+                
+                // Trying to implement pin darkened and board name display after pin has been saved
+                // $(this).parent().parent().children('img.pinImg').css({'opacity':'0.7'})
             });
             $('.boardOptionContainer').click(function(){
                 $(this).parent().submit();

@@ -23,7 +23,7 @@ CREATE TABLE boards(
     board_name VARCHAR(50) NOT NULL,
     blurb VARCHAR(500),
     category VARCHAR(50),
-    cover_pin_url VARCHAR(200),
+    cover_pin_url VARCHAR(1000),
     secret_board VARCHAR(3) DEFAULT 'NO',
     board_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(board_id),
@@ -34,7 +34,7 @@ CREATE TABLE boards(
 );
 CREATE TABLE pins(
     pin_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
-    pin_url VARCHAR(200) NOT NULL,
+    pin_url VARCHAR(1000) NOT NULL,
     blurb VARCHAR(500),
     pin_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(pin_id),
@@ -54,14 +54,17 @@ VALUES(1, 'test_user', 'test@test.com', 'pass', '21', 'test', 'female', 'English
 
 INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
 INSERT INTO boards(board_name, user_id) VALUES('test_board2', 1);
+INSERT INTO boards(board_name, user_id) VALUES('Favorite Characters', 1);
 
 INSERT INTO pins(pin_url, board_id, user_id) VALUES('google.com','1','1');
 INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('images/paris.jpg','1','1'),
 ('images/palm-tree.jpg','1','1'),
 ('images/bicycle.jpg','1','1'),
-('images/roadway.jpg','1','1');
+('images/roadway.jpg','28','1');
 
+INSERT INTO pins(pin_url, board_id, user_id) VALUES
+('https://www.gannett-cdn.com/-mm-/05398f80e3bde0326c872a093f3784aeee1c8a90/c=880-323-1833-861/local/-/media/2018/05/14/USATODAY/usatsports/wp-USAT-allthemoms-front1-19975-winnie-the-pooh-day.jpg?width=580&height=326&fit=crop','1','1');
 
 DELETE FROM users WHERE user_id='1';
 DELETE FROM boards WHERE board_id='1';
