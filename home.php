@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- PINS STILL NEED TO BE WITH BLACK BACKGROUND/OVERLAY ON HOVER -->
-    <title>Pinterest</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/board_modal.css" type="text/css"/>
-    <link rel="icon" href="images/pinterest_logo.ico"/>
-</head>
+<?php require('includes/header.php');?>
 
 <body>
-
     <?php require('nav.html');?>
-
     <div class="container-fluid">
     <div class="row">
-    <!-- <div class="containit"> -->
-        
+        <!-- Display the pins -->
         <?php 
             require('includes/mysqli_connect.php');
             
@@ -48,7 +28,6 @@
             // Get ALL pins from the database 
             $pin_query = "SELECT * FROM pins ORDER BY pin_date DESC;";
             $pin_run = mysqli_query($dbc, $pin_query);
-            $numPins = mysqli_num_rows($pin_run);
             
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
@@ -116,7 +95,7 @@
                         <div class="savePinwImg" onclick=""><img class="pinIcon" src="images/pinButton.png"/>Save</div>
                     </div>';
                 }
-                // Add the pin image
+                // Display the pin image
                 echo '
                 <div class="pinImg"><img class="pinImg" src="'.$row['pin_url'].'"/></div>    
                     <a href="" class="ellipses">...</a>
@@ -124,70 +103,6 @@
             }
             mysqli_close($dbc);
         ?>
-
-<!-- HTML BEGINS HERE -->
-
-        <div class="col-auto text-center pin noshow">
-            <!-- Display dropdown menus at the top of the pin -->
-            <div class="dropdownContainer">
-                <!-- The dropdown "button" -->
-                <div class="boardDropdown">Board Name<img src="images/dropdown_arrow.png" alt="&caron;"></div>
-                <form class="dropdownContainerForm" action="home.php" method="POST">
-                    <!-- Pin and board ids will be populated using PHP -->
-                    <input type="hidden" value="1" class="pin_id" name="pin_id">
-                    <input type="hidden" value="https://cdn.pixabay.com/photo/2016/02/19/11/46/night-1209938_960_720.jpg" class="pin_url" name="pin_url">
-                    <input type="hidden" value="1" class="board_id" name="board_id">
-                    <input type="submit" class="savePin" value="Save">
-                </form>
-
-                <!-- The dropdown menu for other boards -->
-                <!-- A container to hold the entire dropdown menu -->
-                <div class="boardSelectionContainer">
-                    <img src="images/dropdownMenuArrow.png" class="dropdownMenuArrow">
-                    
-                    <!-- Container to hold the top part of the dropdown menu -->
-                    <div class="boardSelection">
-                        <!-- Search bar for the top of the dropdown -->
-                        <div class="searchBoardSelection">
-                            <input class="form-control md-auto searchBar" type="search" placeholder="Search">
-                        </div>
-                        <h4 class="allBoardsText">All boards</h4>
-                        
-                        <!-- Each item in the dropdown selection: TO BE POPULATED VIA PHP-->
-                        <form class="dropdownContainerForm dropdownOptionForm" action="home.php" method="POST">
-                            <div class="boardOptionContainer">
-                                <img src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg" class="boardThumb">
-                                <p class="boardNameDropdown">Board 2</p>
-                                <!-- <div class="savePinBoard" onclick="">Save</div> -->
-                                <!-- Pin and board ids will be populated using PHP -->
-                                <input type="hidden" value="1" class="pin_id" name="pin_id">
-                                <input type="hidden" value="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"  class="pin_url" name="pin_url">
-                                <input type="hidden" value="1" class="board_id" name="board_id">
-                                <input type="submit" class="savePinBoard" value="Save">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="boardSelectionBottomCreate">
-                        <div class="createButton">+</div>
-                        <p>Create Board</p>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Actual pin image -->
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2014/12/15/17/16/night-sky-569319_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
-
-        <div class="col-auto text-center pin noshow">
-            <!-- Save pin button only if user has no boards yet -->
-            <div class="saveContainer">
-                <!-- This should trigger a create a board popup -->
-                <div class="savePinwImg" onclick=""><img class="pinIcon" src="images/pinButton.png"/>Save</div>
-            </div>
-            <img class="pinImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/>
-            <a href="" class="ellipses">...</a>
-        </div>
 
     </div>
         
@@ -213,7 +128,7 @@
                 
                     <div class="createBoard_Input">
                         <label class="suggestedBoardNames" for="board_name">Name</label>
-                        <input class="boardNameField" name="board_name" type="text"/>
+                        <input class="boardNameField" name="board_name" type="text" placeholder='Like "Places to Go" or "Recipes to Make"'/>
                     </div>
                     <div class="createBoard_Input">
                         <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
@@ -281,6 +196,7 @@
                 // $('.pin').unbind('mouseenter mouseleave');
             });
 
+            // Save pins from dropdown
             $('.dropdownContainerForm').submit(function(event){
                 console.log("form not submitted");
 
@@ -302,7 +218,11 @@
                 });
                 $('.boardSelectionContainer').hide();
             });
+            $('.boardOptionContainer').click(function(){
+                $(this).parent().submit();
+            });
 
+            // Display the create form modal when user clicks on create board from the pin dropdown
             $('.boardSelectionBottomCreateForm').submit(function(event){
                 event.preventDefault();
 
@@ -323,14 +243,13 @@
 
                 $('.modal').show();
                 $('.createBoard').show();
-
             });
 
             $('.createBoard_Form').submit(function(){
                 // Stop the page from refreshing when the form submits
                 event.preventDefault();
                 
-                // Save the pin to the database using ajax
+                // Save the board and pin to the database using ajax
                 $.ajax({
                     url : "create_board.php",
                     type: "POST",
@@ -347,8 +266,6 @@
 
             // Modal Display and exit
             $('.boardSelectionBottomCreate').click(function(){
-                // $('.modal').show();
-                // $('.createBoard').show();
                 $(this).children('.boardSelectionBottomCreateForm').submit();
             });
 
@@ -372,8 +289,7 @@
                 $('input.searchBar').val('');
             }
 
-            // Modal interactivity
-            // Switch to create board view
+            // Create Board Modal interactivity
             function switchToCreateBoard(){
                 $('.createBoardTitle h2').html('Create Board');
                 $('.createBoard_Input').show();
@@ -385,22 +301,28 @@
             $('.createButtonBoard').click(function(){
                 switchToCreateBoard();
             });
-            // Suggestions interaction
+            // Put suggestion in board name input field on selection
             $(".suggestedBoardName").click(function(){
                 switchToCreateBoard();
                 console.log($(this).children('p').html());
-                // $('.boardNameField').val($(this).children('p').val());
                 $('input.boardNameField').val($(this).children('p').html());
+                // $('.createBtn').css({
+                //     /* background-color: #ff0000; */
+                //     /* color: #ffffff; */
+                // })
             });
 
-
-            $('.cancelBtn').click(function(){
+            function switchToChooseBoard(){
                 $('.createBoardTitle h2').html('Choose Board');
                 $('.createBoard_Input').hide();
                 $('.createBoardBottom').hide();
                 $('.createButtonBoard').show();
                 $('.suggestedBoardNamesContainer').show();
                 $('.createBoard_PinTitle').show();
+            }
+
+            $('.cancelBtn').click(function(){
+                switchToChooseBoard();
             });
 
             // Pin Description Field
