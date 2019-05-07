@@ -48,6 +48,7 @@
     </nav>
     <div class="container-fluid">
     <div class="row">
+    <!-- <div class="containit"> -->
         
         <?php 
             require('includes/mysqli_connect.php');
@@ -77,6 +78,7 @@
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
                 echo '<div class="col-auto text-center pin" id="pin'.$row['pin_id'].'">';
+                // echo '<div class="text-center pin" id="pin'.$row['pin_id'].'">';
                 if($numBoards != 0){
                     echo '
                     <div class="dropdownContainer">
@@ -204,8 +206,6 @@
             <a href="" class="ellipses">...</a>
         </div>
 
-        
-        <!-- <?php ?> -->
     </div>
         
     </div>
@@ -338,11 +338,23 @@
                 $('.modal').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
+                
+                $('.createBoard_Input').hide();
+                $('.createButtonBoard').show();
+                $('.suggestedBoardNamesContainer').show();
+                $('.createBoard_PinTitle').show();
+                $('input.boardNameField').val('');
+                $('input.searchBar').val('');
             });
             $('.modal').click(function(){
                 $('.modal').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
+                
+                $('.createBoard_Input').hide();
+                $('.createButtonBoard').show();
+                $('.suggestedBoardNamesContainer').show();
+                $('.createBoard_PinTitle').show();
             });
 
             // Modal interactivity
@@ -375,6 +387,16 @@
                 $('.createBoard_PinDesc p').html($(this).val());
                 $(this).hide();
                 $('.createBoard_PinDesc').show();
+            });
+            // Suggestions interaction
+            $(".suggestedBoardName").click(function(){
+                $('.createBoard_Input').show();
+                $('.createButtonBoard').hide();
+                $('.suggestedBoardNamesContainer').hide();
+                $('.createBoard_PinTitle').hide();
+                // $(this).children('p').val();
+                // $('.boardNameField').val($(this).children('p').val());
+                $('input.boardNameField').val('boo');
             });
         });
     </script>

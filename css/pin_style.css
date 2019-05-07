@@ -1,10 +1,20 @@
 /* Pin CSS */
+/* Testing */
+/* .containit{
+    width: 100%;
+    height: 100%;
+    background-color: #c1daab;
+    border: 10px solid #00d9ff;
+} */
+
 .pin{
     background-color: white;
     margin: 5px;
     padding: 6px;
     padding-bottom: 10px;
     border-radius: 10px;
+    float: left;
+    height: 100%;
 }
 .pin:hover{
     background-color: #f2f2f2;
@@ -183,7 +193,6 @@
     float:left;
     margin: 21px 5px;
     line-height: 12px;
-    /* border: 1px solid #00d9ff; */
     text-align: start;
     font-weight: bold;
     color: #333333;
