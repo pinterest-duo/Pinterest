@@ -98,8 +98,13 @@
                     }
                 echo '</div>
                         <div class="boardSelectionBottomCreate">
+                            <form class="boardSelectionBottomCreateForm" method="POST">
                             <div class="createButton">+</div>
                             <p>Create Board</p>
+                            <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
+                            <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
+                            <input type="hidden" value="'.$row['blurb'].'" name="blurb">
+                            </form>
                         </div>
                     </div>
                     </div>';
@@ -197,7 +202,7 @@
         </div>
         <div>
             <div class="createBoard_PinAside">
-                <img src="images/paris.jpg"/>
+                <img class="pinPreview" src="images/paris.jpg"/>
                 <!-- Populated by pin, this value by default -->
                 <div class="createBoard_PinDesc"><p>Tell us about this Pin...</p><img src="images/edit.png" alt="Edit"/></div>
                 <form class="createBoard_Form">
@@ -221,7 +226,6 @@
                         <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
                         <input  class="form-control md-auto searchBar" type="search" name="board_name" placeholder="Search by name or email"/>
                     </div>
-    
 
                     <div class="createBoard_belowTitle">
                         <div class="createButtonBoard">
@@ -295,12 +299,35 @@
                         console.log("error: " + errorThrown);
                     }
                 });
+                $('.boardSelectionContainer').hide();
+            });
+
+            $('.boardSelectionBottomCreateForm').submit(function(event){
+                event.preventDefault();
+
+                var fields = $(this).serializeArray();
+                var arr = [];
+
+                jQuery.each( fields, function( i, field ) {
+                    arr[i] = (field.value);
+                    console.log(field.value);
+                });
+
+                $('.createBoard_PinAside img.pinPreview').attr("src", arr[1]);
+                if(arr[2] != ""){
+                    $('.createBoard_PinDesc').html(arr[2]);
+                }
+
+                $('.modal').show();
+                $('.createBoard').show();
+
             });
 
             // Modal Display and exit
             $('.boardSelectionBottomCreate').click(function(){
-                $('.modal').show();
-                $('.createBoard').show();
+                // $('.modal').show();
+                // $('.createBoard').show();
+                $(this).children('.boardSelectionBottomCreateForm').submit();
             });
 
             $('.modalCloseBtn').click(function(){
@@ -332,8 +359,6 @@
             });
 
             // Modal interactivity
-            // $('.boardPinDescField').hide();
-
             // Switch to create board view
             $('.createButtonBoard').click(function(){
                 $('.createBoardTitle h2').html('Create Board');
@@ -364,6 +389,7 @@
                 $('.createBoard_PinTitle').show();
             });
 
+            // Pin Description Field
             $('.createBoard_PinDesc').click(function(){
                 $('.boardPinDescField').show();
                 $(this).hide();
