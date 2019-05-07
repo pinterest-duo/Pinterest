@@ -279,7 +279,8 @@
                 $('.modal').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
-                
+                $('.createBoardBottom').hide();
+
                 $('.createBoard_Input').hide();
                 $('.createButtonBoard').show();
                 $('.suggestedBoardNamesContainer').show();
@@ -299,6 +300,7 @@
                 $('.createBoard_PinTitle').hide();
             }
             $('.createButtonBoard').click(function(){
+                disableCreateBoardBtn();
                 switchToCreateBoard();
             });
             // Put suggestion in board name input field on selection
@@ -309,7 +311,7 @@
             });
             $('input.boardNameField').change(function(){
                 console.log($(this).val());
-                if($(this).val() != " " || $(this).val() != ""){
+                if($(this).val() != " "){
                     console.log('valid name');
                     enableCreateBoardBtn();
                 }
@@ -324,9 +326,12 @@
                     'background-color': '#ff0000',
                     'color': '#ffffff'
                 });
-                // $('.createBtn').hover().css({
-                //     'background-color': '#bb0000'
-                // });
+                $('.createBtn').on('mouseenter', function(){
+                    $('.createBtn').css({'background-color': '#bb0000'});
+                })
+                $('.createBtn').on('mouseleave', function(){
+                    $('.createBtn').css({'background-color': '#ff0000'});
+                })
                 console.log('button enabled');
             }
             function disableCreateBoardBtn(){
@@ -334,9 +339,6 @@
                 $('.createBtn').css({
                     'background-color': '#efefef',
                     'color': '#8e8e8e'
-                });
-                $('.createBtn').hover().css({
-                    'background-color': '#efefef'
                 });
                 console.log('button disabled');
             }

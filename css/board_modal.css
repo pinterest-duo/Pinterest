@@ -331,6 +331,9 @@ input:checked + .slider:before {
 .createBtn:hover{
     background-color: #bb0000;
 }
+.createBtn[disabled]:hover{
+    background-color: #efefef;
+}
 .cancelBtn:hover{
     cursor: pointer;
     background-color: #e2e2e2;
