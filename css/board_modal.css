@@ -322,10 +322,10 @@ input:checked + .slider:before {
     float: left;
 }
 .createBtn{
-    /* background-color: #ff0000; */
-    background-color: #efefef;
-    /* color: #ffffff; */
-    color: #8e8e8e;
+    background-color: #ff0000;
+    /* background-color: #efefef; */
+    color: #ffffff;
+    /* color: #8e8e8e; */
     float: right;
 }
 .createBtn:hover{

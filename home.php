@@ -307,6 +307,39 @@
                 console.log($(this).children('p').html());
                 $('input.boardNameField').val($(this).children('p').html());
             });
+            $('input.boardNameField').change(function(){
+                console.log($(this).val());
+                if($(this).val() != " " || $(this).val() != ""){
+                    console.log('valid name');
+                    enableCreateBoardBtn();
+                }
+                else{
+                    console.log('not a valid name');
+                    disableCreateBoardBtn();
+                }
+            });
+            function enableCreateBoardBtn(){
+                $('.createBtn').removeAttr('disabled');
+                $('.createBtn').css({
+                    'background-color': '#ff0000',
+                    'color': '#ffffff'
+                });
+                // $('.createBtn').hover().css({
+                //     'background-color': '#bb0000'
+                // });
+                console.log('button enabled');
+            }
+            function disableCreateBoardBtn(){
+                $('.createBtn').attr('disabled', 'true');
+                $('.createBtn').css({
+                    'background-color': '#efefef',
+                    'color': '#8e8e8e'
+                });
+                $('.createBtn').hover().css({
+                    'background-color': '#efefef'
+                });
+                console.log('button disabled');
+            }
 
             function switchToChooseBoard(){
                 $('.createBoardTitle h2').html('Choose Board');
