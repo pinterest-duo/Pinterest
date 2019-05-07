@@ -328,22 +328,21 @@
 
             $('.createBoard_Form').submit(function(){
                 // Stop the page from refreshing when the form submits
-                // event.preventDefault();
+                event.preventDefault();
                 
                 // Save the pin to the database using ajax
-                // $.ajax({
-                //     // URL = location of the php to run on form submission
-                //     url : "create_board.php",
-                //     type: "POST",
-                //     data: $(this).serialize(),
-                //     success: function (data) {
-                //         console.log("board has been made and pin has been saved");
-                //     },
-                //     error: function (jXHR, textStatus, errorThrown) {
-                //         console.log("error: " + errorThrown);
-                //     }
-                // });
-
+                $.ajax({
+                    url : "create_board.php",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        console.log("board has been made and pin has been saved");
+                    },
+                    error: function (jXHR, textStatus, errorThrown) {
+                        console.log("error: " + errorThrown);
+                    }
+                });
+                exitCreateBoardModal();
             });
 
             // Modal Display and exit
@@ -354,20 +353,12 @@
             });
 
             $('.modalCloseBtn').click(function(){
-                $('.modal').hide();
-                $('.createBoard').hide();
-                $('.boardSelectionContainer').toggle();
-                
-                // Resetting the create board modal
-                $('.createBoard_Input').hide();
-                $('.createButtonBoard').show();
-                $('.suggestedBoardNamesContainer').show();
-                $('.createBoard_PinTitle').show();
-                
-                $('input.boardNameField').val('');
-                $('input.searchBar').val('');
+                exitCreateBoardModal();
             });
             $('.modal').click(function(){
+                exitCreateBoardModal();
+            });
+            function exitCreateBoardModal(){
                 $('.modal').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
@@ -379,30 +370,30 @@
 
                 $('input.boardNameField').val('');
                 $('input.searchBar').val('');
-            });
+            }
 
             // Modal interactivity
             // Switch to create board view
-            $('.createButtonBoard').click(function(){
+            function switchToCreateBoard(){
                 $('.createBoardTitle h2').html('Create Board');
                 $('.createBoard_Input').show();
                 $('.createBoardBottom').show();
                 $('.createButtonBoard').hide();
                 $('.suggestedBoardNamesContainer').hide();
                 $('.createBoard_PinTitle').hide();
+            }
+            $('.createButtonBoard').click(function(){
+                switchToCreateBoard();
             });
             // Suggestions interaction
             $(".suggestedBoardName").click(function(){
-                $('.createBoardTitle h2').html('Create Board');
-                $('.createBoard_Input').show();
-                $('.createBoardBottom').show();
-                $('.createButtonBoard').hide();
-                $('.suggestedBoardNamesContainer').hide();
-                $('.createBoard_PinTitle').hide();
-                console.log($(this).children('p').val());
+                switchToCreateBoard();
+                console.log($(this).children('p').html());
                 // $('.boardNameField').val($(this).children('p').val());
-                $('input.boardNameField').val();
+                $('input.boardNameField').val($(this).children('p').html());
             });
+
+
             $('.cancelBtn').click(function(){
                 $('.createBoardTitle h2').html('Choose Board');
                 $('.createBoard_Input').hide();
