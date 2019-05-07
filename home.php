@@ -306,10 +306,6 @@
                 switchToCreateBoard();
                 console.log($(this).children('p').html());
                 $('input.boardNameField').val($(this).children('p').html());
-                // $('.createBtn').css({
-                //     /* background-color: #ff0000; */
-                //     /* color: #ffffff; */
-                // })
             });
 
             function switchToChooseBoard(){
