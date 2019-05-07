@@ -205,7 +205,7 @@
                 <img class="pinPreview" src="images/paris.jpg"/>
                 <!-- Populated by pin, this value by default -->
                 <div class="createBoard_PinDesc"><p>Tell us about this Pin...</p><img src="images/edit.png" alt="Edit"/></div>
-                <form class="createBoard_Form">
+                <form class="createBoard_Form" method="POST" action="create_board.php">
                     <textarea class="boardPinDescField" name="pin_desc" type="text" placeholder="Tell us about this Pin..."></textarea>  
             </div>
             <div class="createBoard_WordAside">
@@ -223,8 +223,8 @@
                         </label>
                     </div>
                     <div class="createBoard_Input last">
-                        <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
-                        <input  class="form-control md-auto searchBar" type="search" name="board_name" placeholder="Search by name or email"/>
+                        <label class="suggestedBoardNames" for="collab">Add Collaborators (optional)</label>
+                        <input  class="form-control md-auto searchBar" type="search" name="collab" placeholder="Search by name or email"/>
                     </div>
 
                     <div class="createBoard_belowTitle">
@@ -256,6 +256,7 @@
                     </div>
                     <div class="createBoardBottom">
                         <div class="cancelBtn">Cancel</div>
+                        <input class="createBoardPinUrl" type="hidden" name="pin_url" value=""/>
                         <input type="submit" class="createBtn" value="Create"/>
                     </div>
                 </div>
@@ -317,9 +318,31 @@
                 if(arr[2] != ""){
                     $('.createBoard_PinDesc').html(arr[2]);
                 }
+                // Set the url for the pin in the modal
+                $('input.createBoardPinUrl').val(arr[1])
 
                 $('.modal').show();
                 $('.createBoard').show();
+
+            });
+
+            $('.createBoard_Form').submit(function(){
+                // Stop the page from refreshing when the form submits
+                // event.preventDefault();
+                
+                // Save the pin to the database using ajax
+                // $.ajax({
+                //     // URL = location of the php to run on form submission
+                //     url : "create_board.php",
+                //     type: "POST",
+                //     data: $(this).serialize(),
+                //     success: function (data) {
+                //         console.log("board has been made and pin has been saved");
+                //     },
+                //     error: function (jXHR, textStatus, errorThrown) {
+                //         console.log("error: " + errorThrown);
+                //     }
+                // });
 
             });
 
