@@ -24,18 +24,18 @@
     margin: 0;
 }
 .pinImg{
+    background-color: #000000;
+    border-radius: 10px;
+    margin: auto;
+}
+img.pinImg{
     width: 240px;
     height: auto;
-    /* clip: auto; */
-    margin: auto;
-    border-radius: 10px;
     display: block;
-    background-color: #000000;
     cursor: zoom-in;
 }
-.pin:hover .pinImg{
+.pin:hover img.pinImg{
     opacity: 0.7;
-    background-color: #000000;
 }
 .pin a.ellipses{
     margin: 5px 0 0 0;

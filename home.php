@@ -46,6 +46,7 @@
             </li>
         </ul>
     </nav>
+
     <div class="container-fluid">
     <div class="row">
     <!-- <div class="containit"> -->
@@ -135,7 +136,7 @@
                     </div>';
                 }
                 echo '
-                    <img class="pinImg" src="'.$row['pin_url'].'"/>
+                <div class="pinImg"><img class="pinImg" src="'.$row['pin_url'].'"/></div>    
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
