@@ -126,18 +126,18 @@
             <div class="createBoard_WordAside">
                 <div class="createBoard_PinTitle"></div>
                 
-                    <div class="createBoard_Input">
+                    <div class="createBoard_Input botBord">
                         <label class="suggestedBoardNames" for="board_name">Name</label>
                         <input class="boardNameField" name="board_name" type="text" placeholder='Like "Places to Go" or "Recipes to Make"'/>
                     </div>
-                    <div class="createBoard_Input">
+                    <div class="createBoard_Input botBord">
                         <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
                         <label class="switch">
                             <input class="secretSwitch" type="checkbox" value="yes">
                             <span class="slider round"></span>
                         </label>
                     </div>
-                    <div class="createBoard_Input last">
+                    <div class="createBoard_Input">
                         <label class="suggestedBoardNames" for="collab">Add Collaborators (optional)</label>
                         <input  class="form-control md-auto searchBar" type="search" name="collab" placeholder="Search by name or email"/>
                     </div>
@@ -152,19 +152,19 @@
                                 <h5 class="suggestedBoardNamesTitle">Suggested board names</h5>
                                 <div class="suggestedBoardName">
                                     <div class="addBoardName">+</div>
-                                    <p>Suggestion 1</p>
+                                    <p>Capture</p>
                                 </div>
                                 <div class="suggestedBoardName">
                                     <div class="addBoardName">+</div>
-                                    <p>Suggestion 2</p>
+                                    <p>Travel</p>
                                 </div>
                                 <div class="suggestedBoardName">
                                     <div class="addBoardName">+</div>
-                                    <p>Suggestion 3</p>
+                                    <p>Recipes</p>
                                 </div>
                                 <div class="suggestedBoardName">
                                     <div class="addBoardName">+</div>
-                                    <p>Suggestion 4</p>
+                                    <p>Clothes</p>
                                 </div>
                             </div>
                         </div>
@@ -311,7 +311,7 @@
             });
             $('input.boardNameField').change(function(){
                 console.log($(this).val());
-                if($(this).val() != " "){
+                if($(this).val() != " " && $(this).val() != ""){
                     console.log('valid name');
                     enableCreateBoardBtn();
                 }

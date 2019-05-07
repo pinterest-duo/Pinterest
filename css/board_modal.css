@@ -189,7 +189,7 @@ input.boardNameField:focus{
     padding-left: 50px;
     background-position-x: 20px;
 }
-.createBoard_Input{
+.createBoard_Input.botBord{
     border-bottom: 1px solid #f2f2f2;
 }
 .createBoard_Input[class="last"]{
