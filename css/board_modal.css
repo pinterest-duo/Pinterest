@@ -42,19 +42,23 @@
 .createBoardFoot{
     overflow: auto;
 }
+.closeBtn{
+    font-family: 'Nunito', sans-serif;
+}
 .modalCloseBtn{
     color: #8e8e8e;
     border-radius: 30px;
-    font-size: 150%;
+    font-size: 200%;
     line-height: 20px;
     width: 40px;
     height: 40px;
-    padding: 6px 14px;
+    padding: 6px 12px;
     padding-bottom: 10px;
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
+    font-weight: bold;
 }
 .modalCloseBtn:hover{
     background-color: #f0f0f0;
@@ -155,9 +159,9 @@ h5.suggestedBoardNamesTitle{
     padding: 0;
     margin: 0;
 }
-.createBoard_Form .searchBar{
+/* .createBoard_Form .searchBar{
     border-radius: 5px;
-}
+} */
 .createBoard_Form input{
     display: block;
 }
@@ -172,7 +176,7 @@ input.boardNameField{
     padding-left: 15px;
     width: 100%;
 }
-input.boardNameField:focus, .createBoard_Input .searchBar:focus{
+input.boardNameField:focus{
     outline: none;
     box-shadow: 0 0 0 3pt #7fbbff;
 }
@@ -180,10 +184,16 @@ input.boardNameField:focus, .createBoard_Input .searchBar:focus{
     box-shadow: 0 0 0 3pt #7fbbff;
 }
 .createBoard_Input .searchBar{
-    width: 100%;
+    /* width: 100%; */
     padding: 8px;
     padding-left: 50px;
     background-position-x: 20px;
+}
+.createBoard_Input{
+    border-bottom: 1px solid #f2f2f2;
+}
+.createBoard_Input[class="last"]{
+    border: none;
 }
 
 
@@ -274,7 +284,7 @@ input:checked + .slider:before {
     float: right;
 }
 .boardPinDescField{
-    /* display: none; */
+    display: none;
     min-height: 60px;
 }
 .boardPinDescField::placeholder{
@@ -286,4 +296,40 @@ input:checked + .slider:before {
 }
 .createBoard_PinDesc:hover{
     cursor: pointer;
+}
+
+/* Modal bottom */
+.createBoardBottom{
+    display: none;
+    padding: 20px;
+    position: absolute;
+    height: 90px;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #f2f2f2;
+}
+.createBtn, .cancelBtn{
+    width: 80px;
+    height: 45px;
+    padding: 7px 12px;
+    border:none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.cancelBtn{
+    background-color: #efefef;
+    color: #333333;
+    float: left;
+}
+.createBtn{
+    background-color: #ff0000;
+    color: #ffffff;
+    float: right;
+}
+.createBtn:hover{
+    background-color: #bb0000;
+}
+.cancelBtn:hover{
+    cursor: pointer;
+    background-color: #e2e2e2;
 }

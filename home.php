@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/board_modal.css" type="text/css"/>
@@ -17,35 +18,8 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand navbar-custom">
-        <a class="navbar-brand" href="home.html"><img src="images/pinterest_logo.png" alt="Pinterest" height="27px"></a>
-        <input class="form-control mr-lg-2 searchBar" id="searchBar" type="search" placeholder="Search" aria-label="Search">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="home.php" id="homeLink">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="" id="followingLink">Following</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profile.html" id="profileImgLink"><img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"></a>
-            </li>
-            <li class="nav-item">
-                <!-- Replace Username with actual username -->
-                <!-- <img class="profileImg" src="https://cdn.pixabay.com/photo/2016/02/19/10/41/palm-tree-1209358_960_720.jpg"/> -->
-                <a class="nav-link" href="profile.html" id="profileLink">Username</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="" id="messagesLink">Messages</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="" id="notificationsLink">Notifications</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navEllipse" href="" id="moreLink">...</a>
-            </li>
-        </ul>
-    </nav>
+
+    <?php require('nav.html');?>
 
     <div class="container-fluid">
     <div class="row">
@@ -78,8 +52,8 @@
             
             // Display every pin
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
-                echo '<div class="col-auto text-center pin" id="pin'.$row['pin_id'].'">';
-                // echo '<div class="text-center pin" id="pin'.$row['pin_id'].'">';
+                echo '<div class="col-auto text-center pin" id="pin'.$row['pin_id'].'">';                
+                // Only create the board dropdown if the user has at least one board
                 if($numBoards != 0){
                     echo '
                     <div class="dropdownContainer">
@@ -107,6 +81,7 @@
                                 <h4 class="allBoardsText">All boards</h4>
                                 ';
                     $currBoard = 0;
+                    // Display all of the board suggestions
                     foreach($boards as $board){
                         echo '                        
                         <form class="dropdownContainerForm dropdownOptionForm" action="save_pin.php" method="POST">
@@ -129,12 +104,14 @@
                     </div>
                     </div>';
                 }
+                // Display a save button if the user has no boards
                 else{
                     echo '<div class="saveContainer">
                         <!-- This should trigger a create a board popup -->
                         <div class="savePinwImg" onclick=""><img class="pinIcon" src="images/pinButton.png"/>Save</div>
                     </div>';
                 }
+                // Add the pin image
                 echo '
                 <div class="pinImg"><img class="pinImg" src="'.$row['pin_url'].'"/></div>    
                     <a href="" class="ellipses">...</a>
@@ -210,25 +187,13 @@
     </div>
         
     </div>
-    <!-- Creating the nav without bootstrap -->
-    <!-- <div id="nav">
-        <a id="navLogo" href="home.html"><img src="images/pinterest_logo.png" alt="Pinterest" height="27px"></a>
-        <input id="searchBar" name="searchBar" placeholder="Search">
-        <ul id="navList">
-            <li>Home</li>
-            <li>Following</li>
-            <li>Username</li>
-            <li>Messages</li>
-            <li>Notifications</li>
-            <li>More</li>
-        </ul>
-    </div> -->
+
     <div class="modal"></div>
 
     <div class="createBoard">
         <div class="createBoardTitle">
             <h2>Choose board</h2>
-            <div class="modalCloseBtn">x</div>
+            <div class="modalCloseBtn"><span class="closeBtn">x</span></div>
         </div>
         <div>
             <div class="createBoard_PinAside">
@@ -252,9 +217,9 @@
                             <span class="slider round"></span>
                         </label>
                     </div>
-                    <div class="createBoard_Input">
+                    <div class="createBoard_Input last">
                         <label class="suggestedBoardNames" for="is_secret_board">Add Collaborators (optional)</label>
-                        <input class="searchBar" name="board_name" type="text" placeholder="Search by name or email"/>
+                        <input  class="form-control md-auto searchBar" type="search" name="board_name" placeholder="Search by name or email"/>
                     </div>
     
 
@@ -285,9 +250,12 @@
                             </div>
                         </div>
                     </div>
-
-                </form>
-            </div>
+                    <div class="createBoardBottom">
+                        <div class="cancelBtn">Cancel</div>
+                        <input type="submit" class="createBtn" value="Create"/>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>    
 
@@ -340,10 +308,12 @@
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
                 
+                // Resetting the create board modal
                 $('.createBoard_Input').hide();
                 $('.createButtonBoard').show();
                 $('.suggestedBoardNamesContainer').show();
                 $('.createBoard_PinTitle').show();
+                
                 $('input.boardNameField').val('');
                 $('input.searchBar').val('');
             });
@@ -356,16 +326,42 @@
                 $('.createButtonBoard').show();
                 $('.suggestedBoardNamesContainer').show();
                 $('.createBoard_PinTitle').show();
+
+                $('input.boardNameField').val('');
+                $('input.searchBar').val('');
             });
 
             // Modal interactivity
-            $('.boardPinDescField').hide();
+            // $('.boardPinDescField').hide();
 
+            // Switch to create board view
             $('.createButtonBoard').click(function(){
+                $('.createBoardTitle h2').html('Create Board');
                 $('.createBoard_Input').show();
+                $('.createBoardBottom').show();
                 $('.createButtonBoard').hide();
                 $('.suggestedBoardNamesContainer').hide();
                 $('.createBoard_PinTitle').hide();
+            });
+            // Suggestions interaction
+            $(".suggestedBoardName").click(function(){
+                $('.createBoardTitle h2').html('Create Board');
+                $('.createBoard_Input').show();
+                $('.createBoardBottom').show();
+                $('.createButtonBoard').hide();
+                $('.suggestedBoardNamesContainer').hide();
+                $('.createBoard_PinTitle').hide();
+                console.log($(this).children('p').val());
+                // $('.boardNameField').val($(this).children('p').val());
+                $('input.boardNameField').val();
+            });
+            $('.cancelBtn').click(function(){
+                $('.createBoardTitle h2').html('Choose Board');
+                $('.createBoard_Input').hide();
+                $('.createBoardBottom').hide();
+                $('.createButtonBoard').show();
+                $('.suggestedBoardNamesContainer').show();
+                $('.createBoard_PinTitle').show();
             });
 
             $('.createBoard_PinDesc').click(function(){
@@ -389,16 +385,7 @@
                 $(this).hide();
                 $('.createBoard_PinDesc').show();
             });
-            // Suggestions interaction
-            $(".suggestedBoardName").click(function(){
-                $('.createBoard_Input').show();
-                $('.createButtonBoard').hide();
-                $('.suggestedBoardNamesContainer').hide();
-                $('.createBoard_PinTitle').hide();
-                // $(this).children('p').val();
-                // $('.boardNameField').val($(this).children('p').val());
-                $('input.boardNameField').val('boo');
-            });
+
         });
     </script>
 </body>

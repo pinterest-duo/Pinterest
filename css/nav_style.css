@@ -12,7 +12,7 @@ nav.navbar{
     width: 100%;
     font-weight: bold;
 }
-nav.navbar input.searchBar, .boardSelection input.searchBar, .searchBar{
+.searchBar{
     background-color: #efefef;
     background-image: url('searchIcon.png');
     background-size: 20px;
@@ -22,8 +22,9 @@ nav.navbar input.searchBar, .boardSelection input.searchBar, .searchBar{
     padding-left: 40px;
     border: none;
 }
-nav.navbar input:focus{
+.searchBar:focus{
     background-color: #efefef;
+    box-shadow: 0 0 0 3pt #7fbbff;
 }
 .navEllipse{
     font-size: 30px;
