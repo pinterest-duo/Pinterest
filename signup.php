@@ -1,6 +1,6 @@
 <?php
 //This script performs an INSERT query to add a record to the users table
-
+echo "<H1>SIGNUP PAGE PHP</H1>";
 // Check for form submission
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	include('includes/functions.php'); //Include the function.php file
@@ -35,8 +35,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 	if(empty($errors)){ 
+// 		INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) 
+// VALUES(1, 'blinky', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
 		
-		$query = "INSERT INTO users (email, password, age)VALUES('$e',SHA1('$p'),$a";
+		// $query = "INSERT INTO users (email, password, age)VALUES('$e',SHA1('$p'),'$a')";
+		$query = "INSERT INTO users (username, email, password, age, first_name, gender, user_language, country, user_location)
+		VALUES('$e','$e',SHA1('$p'),'$a', 'Shruti', 'female', 'English', 'United States', 'New York')";
 		
 		$run = mysqli_query($dbc, $query); //Run the query
 

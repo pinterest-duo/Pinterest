@@ -1,7 +1,7 @@
 
 /* Create Board CSS */
 /* The Modal (background) */
-.modal{
+.modalSara{
     display: none;
     position: fixed;
     z-index: 5000;
@@ -11,7 +11,7 @@
     height: 100%;
     background-color: rgba(49, 49, 49, 0.863);
 }
-.modal:hover{
+.modalSara:hover{
 cursor: zoom-out;
 }
 .createBoard{

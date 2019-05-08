@@ -3,7 +3,6 @@ require('form_signup.php');
 
 ?>
 
-
 <body>
 <!-- Insert condiition - nav only dispalyed if logIn complete -->
      <?php //require('nav.html'); ?> 
@@ -118,7 +117,7 @@ require('form_signup.php');
         
     </div>
 
-    <div class="modal"></div>
+    <div class="modalSara"></div>
 
     <div class="createBoard">
         <div class="createBoardTitle">
@@ -235,7 +234,7 @@ require('form_signup.php');
                 $(this).parent().submit();
             });
 
-            // Display the create form modal when user clicks on create board from the pin dropdown
+            // Display the create form modalSara when user clicks on create board from the pin dropdown
             $('.boardSelectionBottomCreateForm').submit(function(event){
                 event.preventDefault();
 
@@ -251,10 +250,10 @@ require('form_signup.php');
                 if(arr[2] != ""){
                     $('.createBoard_PinDesc').html(arr[2]);
                 }
-                // Set the url for the pin in the modal
+                // Set the url for the pin in the modalSara
                 $('input.createBoardPinUrl').val(arr[1])
 
-                $('.modal').show();
+                $('.modalSara').show();
                 $('.createBoard').show();
             });
 
@@ -285,11 +284,11 @@ require('form_signup.php');
             $('.modalCloseBtn').click(function(){
                 exitCreateBoardModal();
             });
-            $('.modal').click(function(){
+            $('.modalSara').click(function(){
                 exitCreateBoardModal();
             });
             function exitCreateBoardModal(){
-                $('.modal').hide();
+                $('.modalSara').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
                 $('.createBoardBottom').hide();
