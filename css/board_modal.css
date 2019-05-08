@@ -12,7 +12,7 @@
     background-color: rgba(49, 49, 49, 0.863);
 }
 .modal:hover{
-    cursor: zoom-out;
+cursor: zoom-out;
 }
 .createBoard{
     display: none;

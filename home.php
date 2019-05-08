@@ -5,7 +5,9 @@ require('includes/signup.php');
 
 
 <body>
-    <?php require('nav.html');?>
+<!-- Insert condiition - nav only dispalyed if logIn complete -->
+     <?php //require('nav.html'); ?> 
+
     <div class="container-fluid">
     <div class="row">
         <!-- Display the pins -->
