@@ -1,5 +1,5 @@
 <?php require('includes/header.php');
-require('includes/signup.php');
+require('form_signup.php');
 
 ?>
 
@@ -107,6 +107,7 @@ require('includes/signup.php');
                     <p class="pinBoard"></p>
                     <img class="pinImg" src="'.$row['pin_url'].'"/>
                 </div>    
+                
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
