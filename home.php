@@ -1,4 +1,8 @@
-<?php require('includes/header.php');?>
+<?php require('includes/header.php');
+require('includes/signup.php');
+
+?>
+
 
 <body>
     <?php require('nav.html');?>

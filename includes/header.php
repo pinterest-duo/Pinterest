@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="css/nav_style.css" type="text/css"/>
     <link rel="stylesheet" href="css/pin_style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/login_style.css" type="text/css"/>   
     <link rel="stylesheet" href="css/board_modal.css" type="text/css"/>
     <link rel="icon" href="images/pinterest_logo.ico"/>
 </head>
