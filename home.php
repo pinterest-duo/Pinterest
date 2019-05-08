@@ -1,3 +1,7 @@
+<?php
+require "signup.php"; 
+?>
+
 
 <div class="container-fluid">
     <div class="row">

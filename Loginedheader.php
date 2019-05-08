@@ -18,3 +18,29 @@
 <body>
     <div class="container-fluid">
 
+<header> 
+    <nav class="navbar sticky-top navbar-expand navbar-light">
+    <a class="navbar-brand" href="home.html"><img src="pinterest_logo.png" alt="Pinterest" height="27px"></a>
+    <input class="form-control mr-lg-2" id="searchBar" type="search" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Following</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="profile.html">Username</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Notifications</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">More</a>
+        </li>
+    </ul>
+</nav>
+</header> 

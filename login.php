@@ -1,17 +1,16 @@
 
 <script>
 $(document).ready(function(){        
-   $('#signUp').modal('show');
+   $('#logIn').modal('show');
     }); 
 
-    
 </script>
 
 
 <!-- Modal -->
-<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
-  <button id="blogin" class="btn btn-light btn-rounden z-depth-1a" onclick= >Log in</button>
+  <button type=button id="bSignUp" class="btn btn-light btn-rounden z-depth-1a">Log in</button>
 
  
   <div class="modal-dialog" role="document">
@@ -35,19 +34,15 @@ $(document).ready(function(){
                 <!--Inputs-->
                 <div class="mb-2">
                     <!-- Email: -->
-                    <input type="email" class="form-control validate" placeholder="Email" name="uname" required>
+                    <input type="text" class="form-control validate" placeholder="Email or phone number" name="uname" required>
 
                     <!-- Password -->
                     <input type="password" class="form-control validate" placeholder="Create a password" name="psw"  
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase
                      and lowercase letter, and at least 8 or more characters" required>
 
-                     <!-- Age -->
-                    <input type="text" class="form-control validate" placeholder="Age" name="age" pattern="\d*" required
-                    title="Must be a number">
-
                     <!-- continue button -->
-                    <button type="submit" class="btn btn-danger btn-rounden">Continue</button>
+                    <button type="submit" class="btn btn-danger btn-rounden">Log in</button>
                 </div>
             </form> 
                 
@@ -64,7 +59,7 @@ $(document).ready(function(){
             </div>
 
             <div class="sub2">
-               <a href="login.php" > Already a member? Log in </a>
+               <a>Forgot your password?</a>
 
             </div>
 
@@ -72,7 +67,7 @@ $(document).ready(function(){
       </div>
 
              <div class="footer">
-                Create a business account
+                <a href="signup.php">Not on Pinterest yet? Sign Up</a>
             </div>
 
      

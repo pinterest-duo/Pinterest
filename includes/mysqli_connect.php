@@ -2,7 +2,7 @@
 DEFINE('DB_USER','root'); 
 DEFINE('DB_PASSWORD','root');
 DEFINE('DB_HOST', 'localhost'); 
-DEFINE('DB_NAME', 'registration'); 
+DEFINE('DB_NAME', 'pinterest'); 
 
 // mysqli - i stands for improved
 // There are situations when things may go wrong - we have to accont for that
