@@ -1,0 +1,340 @@
+
+/* Create Board CSS */
+/* The Modal (background) */
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 5000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(49, 49, 49, 0.863);
+}
+.modal:hover{
+cursor: zoom-out;
+}
+.createBoard{
+    display: none;
+    background-color: #ffffff;
+    z-index: 5001;
+    position: absolute;
+    width: 800px;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 8px;
+    color: #333333;
+    overflow: auto;
+}
+.createBoardTitle{
+    padding: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px #f2f2f2 solid;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 67px;
+    border-radius: 8px 8px 0 0;
+}
+.createBoardFoot{
+    overflow: auto;
+}
+.closeBtn{
+    font-family: 'Nunito', sans-serif;
+}
+.modalCloseBtn{
+    color: #8e8e8e;
+    border-radius: 30px;
+    font-size: 200%;
+    line-height: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 6px 12px;
+    padding-bottom: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.modalCloseBtn:hover{
+    background-color: #f0f0f0;
+}
+.createBoard_PinAside{
+    border-right: 1px #f2f2f2 solid;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    bottom: 0;
+    padding: 13px 50px;
+    width: 40%;
+    /* border: solid 2px #b700ff; */
+}
+.createBoard_PinAside img{
+    width: 100%;
+    border-radius: 10px;
+}
+.createBoardTitle h2{
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+.createBoard_WordAside{
+    position: absolute;
+    top: 66px;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+}
+.createBoard_PinTitle{
+    border-bottom: 1px #f2f2f2 solid;
+    min-height: 17px;
+}
+.createBoard_belowTitle h5{
+    font-size: 100%;
+    font-weight: bold;
+    /* height: */
+}
+.createButtonBoard{
+    padding: 14px 22px;
+}
+.createButtonBoard:hover, .suggestedBoardName:hover{
+    background-color: #efefef;
+    cursor: pointer;
+    color: #333333;
+}
+.createButtonModal{
+    border-radius: 30px;
+    height: 32px;
+    width: 32px;
+    background-color: #f90000;
+    color: white;
+    font-size: 30px;
+    line-height: 25px;
+    padding: 0 7px;
+    float: left;
+}
+.createButtonBoard h5{
+    margin-left: 45px;
+    padding-top: 7px;
+}
+/* must come before styling for h5 */
+.suggestedBoardNamesContainer{
+    padding: 12px 0;
+    font-size: 100%;
+    color: #8e8e8e;
+    font-weight: bold;
+}
+h5.suggestedBoardNamesTitle{
+    font-weight: normal;
+    font-size: 95%;
+    color: #333333;
+}
+.suggestedBoardNamesTitle{
+    padding-left: 20px;
+}
+.addBoardName{
+    float: left;
+    font-size: 210%;
+    font-weight: normal;
+    padding-left: 20px;
+    line-height: 25px;
+}
+.suggestedBoardName{
+    padding-top: 5px;
+    padding-bottom: 1px;
+}
+.suggestedBoardName p{
+    font-size: 110%;
+    padding-top: 3px;
+    padding-left: 50px;
+    height: 20px;
+}
+
+/* Create board inputs */
+.createBoard_Form{
+    padding: 0;
+    margin: 0;
+}
+/* .createBoard_Form .searchBar{
+    border-radius: 5px;
+} */
+.createBoard_Form input{
+    display: block;
+}
+.createBoard_Input{
+    padding: 12px;
+    display: none;
+}
+input.boardNameField{
+    border: 1px solid #8f8f8f;
+    border-radius: 4px;
+    padding: 6px;
+    padding-left: 15px;
+    width: 100%;
+}
+input.boardNameField:focus{
+    outline: none;
+    box-shadow: 0 0 0 3pt #7fbbff;
+}
+.switch:focus{
+    box-shadow: 0 0 0 3pt #7fbbff;
+}
+.createBoard_Input .searchBar{
+    /* width: 100%; */
+    padding: 8px;
+    padding-left: 50px;
+    background-position-x: 20px;
+}
+.createBoard_Input.botBord{
+    border-bottom: 1px solid #f2f2f2;
+}
+.createBoard_Input[class="last"]{
+    border: none;
+}
+
+
+/* Slider */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: block;
+    width: 42px;
+    height: 26px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #ccc; */
+    border: 1px solid #8f8f8f;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: -1px;
+    top: -1px;
+    /* bottom: 4px; */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 1px solid #8f8f8f;
+}
+
+input:checked + .slider {
+    background-color: #000000;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+.createBoard_PinDesc, .boardPinDescField{
+    width: 92%;
+    margin: 10px 4%;
+    font-size: 90%;
+}
+.createBoard_PinDesc{
+    color: #8e8e8e;
+}
+.createBoard_PinDesc p{
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.createBoard_PinDesc img{
+    width: 17px;
+    float: right;
+}
+.boardPinDescField{
+    display: none;
+    min-height: 60px;
+}
+.boardPinDescField::placeholder{
+    font-size: 90%;
+    color: #999999;
+}
+.boardPinDescField:focus{
+    outline: none;
+}
+.createBoard_PinDesc:hover{
+    cursor: pointer;
+}
+
+/* Modal bottom */
+.createBoardBottom{
+    display: none;
+    padding: 20px;
+    position: absolute;
+    height: 90px;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #f2f2f2;
+}
+.createBtn, .cancelBtn{
+    width: 80px;
+    height: 45px;
+    padding: 7px 12px;
+    border:none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.cancelBtn{
+    background-color: #efefef;
+    color: #333333;
+    float: left;
+}
+.createBtn{
+    background-color: #ff0000;
+    /* background-color: #efefef; */
+    color: #ffffff;
+    /* color: #8e8e8e; */
+    float: right;
+}
+.createBtn:hover{
+    background-color: #bb0000;
+}
+.createBtn[disabled]:hover{
+    background-color: #efefef;
+}
+.cancelBtn:hover{
+    cursor: pointer;
+    background-color: #e2e2e2;
+}

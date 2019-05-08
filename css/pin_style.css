@@ -1,0 +1,255 @@
+/* Pin CSS */
+/* Testing */
+/* .containit{
+    width: 100%;
+    height: 100%;
+    background-color: #c1daab;
+    border: 10px solid #00d9ff;
+} */
+
+.pin{
+    background-color: white;
+    margin: 5px;
+    padding: 6px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    float: left;
+    height: 100%;
+}
+.pin:hover{
+    background-color: #f2f2f2;
+}
+.pin form{
+    padding: 0;
+    margin: 0;
+}
+.pinBoard{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 120%;
+
+    color: white;
+    overflow: hidden;
+    display: none;
+}
+.pinImg{
+    background-color: #000000;
+    border-radius: 10px;
+    margin: auto;
+}
+img.pinImg{
+    width: 240px;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+}
+.pin:hover img.pinImg{
+    opacity: 0.7;
+}
+.pin a.ellipses{
+    margin: 5px 0 0 0;
+    padding: 7px 0;
+    line-height: 2px;
+    float: right;
+    color: #999999;
+    text-decoration: none;
+    height: 25px;
+    width: 25px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.ellipses:hover{
+    background-color: #e4e4e4;
+}
+.pin:hover .dropdownContainer, .pin:hover .saveContainer{
+    display: block;
+}
+
+/* Save Pin Buttons */
+.savePin, .savePinwImg, .savePinBoard{
+    background-color: #ff0000;
+    color: #ffffff;
+    float: right;
+    width: 60px;
+    height: 40px;
+    padding: 7px 12px;
+    border:none;
+}
+.savePin{
+    border-radius: 0 10px 10px 0;
+}
+.savePinwImg{
+    width: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.savePinwImg:focus, .savePin:focus, .savePinBoard:focus{
+    outline: none;
+}
+.savePinBoard{
+    border-radius: 10px;
+    margin: 6px 10px;
+    visibility: hidden;
+}
+.savePin:hover, .savePinwImg:hover, .savePinBoard:hover{
+    background-color: #e00000;
+}
+.pinIcon{
+    width: 12px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.dropdownContainer, .saveContainer{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    width: 220px;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+    z-index: 2;
+    
+    display: none;
+}
+.dropdownContainer div, .saveContainer div{
+    margin: 0;
+}
+.boardDropdown{
+    float: left;
+    border-radius: 10px 0 0 10px;
+    background-color: #f8f8f8;
+    color: #333333;
+    padding: 7px 0 7px 15px;
+    width: 160px;
+    height: 40px;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+}
+.boardDropdown:hover{
+    background-color: #e2e2e2;
+}
+.boardDropdown img{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-top:5px;
+    float: right;
+}
+
+/* The Dropdown div that appears on selection for more boards */
+.dropdownMenuArrow{
+    width: 25px;
+    margin: 0;
+}
+/* .dropdownContainer{
+    display:none;
+} */
+/* The top and bottom halves of the
+ dropdown need these same properties */
+.boardSelectionContainer{
+    /* position: relative; */
+    /* top: -5px; */
+    margin-top: -20px;
+}
+.boardSelection, .boardSelectionBottomCreate{
+    /* box-shadow: 10px 10px 10px 10px #888888; */
+    width: 320px;
+    background-color: #ffffff;
+    position: relative;
+    top: -5px;
+    left: 70px;
+}
+.boardSelection{
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
+    clear: both;
+    padding: 12px;
+    text-align: start;
+    
+    max-height: 400px;
+    overflow: scroll;
+    /* display:none; */
+    position: relative;
+}
+.boardSelectionContainer{
+    display:none;
+}
+.searchBoardSelection{
+    background-color: #ffffff;
+    padding-bottom: 10px;
+}
+.boardSelection h4{
+    text-align: start;
+    font-size: 14px; 
+    font-weight: normal;
+    margin-top: 8px;
+    color: #333333;
+}
+
+/* The board options */
+.boardOptionContainer{
+    /* padding: 8px; */
+    border-radius: 10px;
+    clear: both;
+    height: 54px;
+    cursor: pointer;
+}
+.boardNameDropdown{
+    /* display: inline; */
+    float:left;
+    margin: 21px 5px;
+    line-height: 12px;
+    text-align: start;
+    font-weight: bold;
+    color: #333333;
+}
+.boardThumb{
+    float: left;
+    height: 34px;
+    width: 30px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.boardOptionContainer:hover .savePinBoard{
+    visibility: visible;
+}
+.boardOptionContainer:hover, .boardSelectionBottomCreate:hover{
+    background-color: #f8f8f8;
+}
+
+/* Bottom part of the Boards Dropdown Menu */
+.boardSelectionBottomCreate{
+    border-top: 1px #f2f2f2 solid;
+    /* border: 1px red solid; */
+    height: 60px;
+    padding: 10px;
+    padding-left: 22px;
+    position: relative;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+.boardSelectionBottomCreate p{
+    font-weight: bold;
+    text-align: start;
+    padding-left: 50px;
+    padding-top: 5px;
+    color: #333333;
+}
+.createButton{
+    border-radius: 30px;
+    height: 30px;
+    width: 30px;
+    background-color: #f90000;
+    color: white;
+    font-size: 30px;
+    line-height: 25px;
+    padding: 0 5px;
+    float: left;
+}
+.noshow{
+    display:none;
+}

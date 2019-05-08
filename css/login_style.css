@@ -1,0 +1,107 @@
+.modal-content{
+    min-height: 400px; 
+    padding: 20px 10px;  
+    width: 440px; 
+
+}
+
+#blogin{
+    margin: 48px 24px; 
+    margin-bottom: 0px; 
+    padding: 10px 14px; 
+    width: 130px; 
+    font-style: bold; 
+    
+}
+
+#bSignUp{
+    margin: 48px 24px; 
+    margin-bottom: 0px; 
+    padding: 10px 14px; 
+    width: 130px; 
+    font-style: bold; 
+    
+}
+
+#logo{
+    padding-bottom: 20px;
+
+}
+
+.title{
+    margin: 0px auto 25px; 
+    width: 270px;
+}
+
+.title h3{
+    font-size: 32px; 
+}
+.title p{
+    font-size: 16px; 
+}
+
+.flogo{
+    margin-top: 5px;
+    height: 50px; 
+    width: 50px; 
+    display: block;
+}
+
+.form{
+    width: 268px; 
+    margin: 0px auto; 
+}
+
+input{
+    margin-bottom:  7px; 
+}
+
+.modal-dialog button{
+    width: 268px; 
+    margin: 10px auto; 
+    display: block; 
+    margin-bottom: 7px; 
+}
+
+#or{
+    text-align: center; 
+    margin-bottom: 3px; 
+    overflow: hidden; 
+    font-weight: bold;
+}
+.google{
+    background-color: #4285F4; 
+    color: white; 
+}
+
+.sub1{
+    margin-top: 15px;
+    font-size: 11px;
+    text-align: center; 
+    opacity: 0.8; 
+
+}
+
+.sub2{
+    margin-top: 15px;
+    font-size: 11px;
+    text-align: center; 
+    opacity: 0.8; 
+
+}
+a{
+    color: black; 
+}
+
+a:hover {
+    color: black; 
+    opacity: 0.7;
+    text-decoration: none;  
+}
+
+.footer{
+    text-align: center; 
+    font-size: 12px; 
+    padding-top: 25px;  
+
+}
