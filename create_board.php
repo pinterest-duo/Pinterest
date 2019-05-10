@@ -4,6 +4,7 @@ require('includes/mysqli_connect.php');
 $userid = 1;
 $url = $_POST['pin_url'];
 $board_name = $_POST['board_name'];
+$blurb = $_POST['pin_desc'];
 $is_secret_board = $_POST['is_secret_board'];
 
 echo "
@@ -44,7 +45,12 @@ $pinBoard = $row['board_id'];
 // ERROR: WON'T CREATE THE PIN BECAUSE THE BOARD ID IS INVALID
 
 // Create the Pin
-$query = "INSERT INTO pins(pin_url, board_id, user_id) VALUES('$url','$pinBoard','$userid');";
+if($blurb == NULL){
+    $query = "INSERT INTO pins(pin_url, board_id, user_id) VALUES('$url','$pinBoard','$userid');";
+}
+else{
+    $query = "INSERT INTO pins(pin_url, blurb, board_id, user_id) VALUES('$url', '$blurb','$pinBoard','$userid');";
+}
 $run = mysqli_query($dbc, $query);
 
 echo "<h1>Pin Query</h1>";
