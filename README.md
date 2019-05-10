@@ -8,4 +8,4 @@ This is a website that is to recreate some of the main functions of the Pinteres
 - Creating boards: Sara
 - Pinning items: Sara
 
-<img src="https://i.imgur.com/y3Rc6CK.gif" width=200/>
+<img src="https://i.imgur.com/y3Rc6CK.gif" width=1000/>
