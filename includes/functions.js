@@ -1,5 +1,4 @@
-<script>
-    $(document).ready(function(){     
+$(document).ready(function(){     
     $('#signUp').modal();
     $("#bSignUp").click(function() {
         $("#signUp").modal("show", function() {
@@ -12,6 +11,4 @@
             $("#signUp").modal("hide");
         });
     });
-    
-    }); 
-</script> 
+}); 

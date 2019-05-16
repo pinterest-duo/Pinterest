@@ -34,13 +34,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 
 
-	if(empty($errors)){ 
-// 		INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) 
-// VALUES(1, 'blinky', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
-		
-		// $query = "INSERT INTO users (email, password, age)VALUES('$e',SHA1('$p'),'$a')";
+	if(empty($errors)){
+		// Grab the "First Name" from the first half of the email
+		$name = "";
+		for($i = 0; $i < strlen($e); $i++){
+			if($e[$i] == "@"){
+				break;
+			}
+			$name .= $e[$i];
+		}
+
 		$query = "INSERT INTO users (username, email, password, age, first_name, gender, user_language, country, user_location)
-		VALUES('$e','$e',SHA1('$p'),'$a', 'Shruti', 'female', 'English', 'United States', 'New York')";
+		VALUES('$e','$e',SHA1('$p'),'$a', '$name', 'n/a', 'English', 'United States', 'New York')";
 		
 		$run = mysqli_query($dbc, $query); //Run the query
 
@@ -51,13 +56,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			
 			//Print a debugging message
 			echo "<p>".mysqli_error($dbc)."</p>";
-		
+		}
+
 		mysqli_close($dbc); //Close the db connection
 		exit(); //Terminate the execution of the script
-		}
-	}else{ 
-
-		
+	}else{		
 		echo "<h2>Error!</h2>";
 		echo "<p>The following error(s) have occured:<br />";
 		foreach ($errors as $error){
@@ -66,7 +69,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		echo "Please try again.</p>";
 	}
 	mysqli_close($dbc);//Close the db connection
-	
 	include('includes/footer.php');
 }
 ?>
