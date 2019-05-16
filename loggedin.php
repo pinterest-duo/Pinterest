@@ -1,8 +1,7 @@
 <?php # Script 12.4 - loggedin.php
-// The user is redirected here from login.php.
-
 session_start();
 // If no cookie is present, redirect the user:
+echo "you've tried to login";
 if (!isset($_SESSION['user_id'])) {
 
 	// Need the functions:
@@ -11,11 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 
 }
 
-// Set the page title and include the HTML header:
-include('includes/functions.php');
-$pageTitle = "Welcome";
-
-include('includes/header.php');
 include('includes/mysqli_connect.php');
 
 $query = "SELECT user_id, CONCAT(first_name,' ', last_name)AS name, email FROM users WHERE user_id = ".$_SESSION['user_id'];

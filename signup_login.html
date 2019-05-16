@@ -72,15 +72,19 @@
             </div>
 
                 <!--Form-->
-            <form action="login.php" method="POST">
+            <form action="login.php" method="POST" id="loginForm">
                 <div class="form">
                     <!--Inputs-->
                     <div class="mb-2">
                         <!-- Email: -->
-                        <input type="text" class="form-control validate" placeholder="Email or phone number" name="uname" required>
+                        <!-- <input type="text" class="form-control validate" placeholder="Email or phone number" name="uname" required> -->
+                        <!-- LAZY DEBUGGING -->
+                        <input type="text" class="form-control validate" placeholder="Email or phone number" name="email" required value="test@test.com">
 
                         <!-- Password -->
-                        <input type="password" class="form-control validate" placeholder="Create a password" name="psw" required>
+                        <!-- <input type="password" class="form-control validate" placeholder="Create a password" name="psw" required> -->
+                        <!-- LAZY DEBUGGING -->
+                        <input type="password" class="form-control validate" placeholder="Create a password" name="password" required value="pass">
 
                         <!-- continue button -->
                         <button type="submit" class="btn btn-danger btn-rounden">Log in</button>
@@ -111,3 +115,27 @@
         </div>        
     </div>
 </div>
+
+<script>
+
+    $('#loginForm').submit(function(event){
+        // Stop the page from refreshing when the form submits
+        event.preventDefault();
+        
+        // Login the user using ajax
+        $.ajax({
+            url : "login.php",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (data) {
+                console.log("you've been logged in");
+            },
+            error: function (jXHR, textStatus, errorThrown) {
+                console.log("error: " + errorThrown);
+            }
+        });
+        $("#logIn").modal("hide");
+        $("#signUp").modal("hide");            
+        // window.location.href = "home.php";
+    });
+</script>
