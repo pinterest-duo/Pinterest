@@ -10,4 +10,5 @@
         echo '</p><p>Please try again.</p>';
     }
     require('signup.html');
+    require('home.php');    
 ?>
