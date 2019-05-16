@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}
 
 		$query = "INSERT INTO users (username, email, password, age, first_name, gender, user_language, country, user_location, user_image)
-		VALUES('$name','$e', '$p','$a', '$name', 'na', 'English', 'United States', 'New York', 'https://wallpaperbro.com/img/84230.jpg')";
+		VALUES('$name','$e', '$p','$a', '$name', 'na', 'English', 'United States', 'New York', 'images/paris.jpg')";
 		
 		$run = mysqli_query($dbc, $query); //Run the query
 
