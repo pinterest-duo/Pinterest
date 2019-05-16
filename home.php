@@ -14,19 +14,13 @@
         if(session_status() == PHP_SESSION_NONE){
             session_start();
         }
-        echo "<script>console.log('session user id: ".$_SESSION['user_id']."')</script>";
         // If the user is not logged in, display login/signup form
         if (!isset($_SESSION['user_id'])) {
             require_once('signup_login.php');
         }
-        // If the user is logged in, display the nav and home feed
+        // If the user is logged in, display the nav and home feed and set the current user
         else{
             $currentUser = $_SESSION['user_id'];
-            // $currentUser = 1;
-            $query = "SELECT username, user_image FROM users WHERE user_id = $currentUser;";
-            $run = mysqli_query($dbc, $query);
-            $row = mysqli_fetch_array($run, MYSQLI_ASSOC);
-            mysqli_close($dbc);
             require('nav.php');
         }
     ?>
@@ -35,11 +29,6 @@
         <!-- Display the pins -->
         <?php 
             require('includes/mysqli_connect.php');
-            
-            // Get all of this user's board names from the database and put it into an array
-            // ****(user 1 right now, replace with current user in future)*****
-            $currentUser = 1;
-
             // Create and run the query for getting the boards for this user
             $board_query = "SELECT board_name, cover_pin_url FROM boards WHERE user_id = $currentUser;";
             $board_run = mysqli_query($dbc, $board_query);

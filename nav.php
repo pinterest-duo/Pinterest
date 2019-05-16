@@ -9,7 +9,7 @@
             <a class="nav-link" href="" id="followingLink">Following</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" id="profileLink"><img class="profileImg" src="<?php echo $row['user_image'];?>"/><p><?php echo $row['username'];?></p></a>
+            <a class="nav-link" href="" id="profileLink"><img class="profileImg" src="<?php echo $_SESSION['user_image'];?>"/><p><?php echo $_SESSION['username'];?></p></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="" id="messagesLink">Messages</a>

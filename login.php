@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		session_start();
 		$_SESSION['user_id'] = $row['user_id'];
 		$_SESSION['user_image'] = $row['user_image'];
+		$_SESSION['username'] = $row['username'];
 		
 		echo "<script>console.log('session user id in login: ".$_SESSION['user_id']."')</script>";
 		echo "<script>console.log('session user id in login: ".$_SESSION['user_image']."')</script>";

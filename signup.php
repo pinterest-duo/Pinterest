@@ -3,10 +3,7 @@
 echo "<H1>SIGNUP PAGE PHP</H1>";
 // Check for form submission
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	include('includes/functions.php'); //Include the function.php file
-	$pageTitle = "signup"; //Set the page title
 	
-	include('includes/header.php'); //Include the header.php file
 	require('includes/mysqli_connect.php');// Connect to the db
 	
 	$errors = array(); //Intialize an array that will store error messages for the user
@@ -26,9 +23,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$p = mysqli_real_escape_string($dbc, $_POST['password']);
 	}
 
-	//Check for data entered into the 'password' form field
+	//Check for data entered into the 'age' form field
 	if(empty($_POST['age'])){
-		$errors[] = "You forgot to enter your password.";
+		$errors[] = "You forgot to enter your age.";
 	}else{
 		$a = mysqli_real_escape_string($dbc, $_POST['age']);
 	}
@@ -44,13 +41,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$name .= $e[$i];
 		}
 
-		$query = "INSERT INTO users (username, email, password, age, first_name, gender, user_language, country, user_location)
-		VALUES('$e','$e',SHA1('$p'),'$a', '$name', 'n/a', 'English', 'United States', 'New York')";
+		$query = "INSERT INTO users (username, email, password, age, first_name, gender, user_language, country, user_location, user_image)
+		VALUES('$name','$e', '$p','$a', '$name', 'na', 'English', 'United States', 'New York', 'https://wallpaperbro.com/img/84230.jpg')";
 		
 		$run = mysqli_query($dbc, $query); //Run the query
 
 		if($run){//If the query ran successfully
 			echo "<h1>Thank you!</h1> <p>You have been registered</p>";
+			session_start();
 		}else{ //If the query did not run successfully
 			echo "<h1>Error!<h1> <p>You could not be registered. Please try again.</p>";
 			
@@ -68,7 +66,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}
 		echo "Please try again.</p>";
 	}
-	mysqli_close($dbc);//Close the db connection
-	include('includes/footer.php');
+	mysqli_close($dbc);
 }
 ?>

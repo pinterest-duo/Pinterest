@@ -12,7 +12,7 @@
             </div>
 
             <!-- Signup Form -->
-            <form action="signup.php" method="POST">
+            <form action="signup.php" method="POST" id="signUpForm">
                 <div class="form">
                     <!--Inputs-->
                     <div class="mb-2">
@@ -77,14 +77,14 @@
                     <!--Inputs-->
                     <div class="mb-2">
                         <!-- Email: -->
-                        <!-- <input type="text" class="form-control validate" placeholder="Email or phone number" name="uname" required> -->
+                        <input type="text" class="form-control validate" placeholder="Email or phone number" name="email" required>
                         <!-- LAZY DEBUGGING -->
-                        <input type="text" class="form-control validate" placeholder="Email or phone number" name="email" required value="test@test.com">
+                        <!-- <input type="text" class="form-control validate" placeholder="Email or phone number" name="email" required value="test@test.com"> -->
 
                         <!-- Password -->
-                        <!-- <input type="password" class="form-control validate" placeholder="Create a password" name="psw" required> -->
+                        <input type="password" class="form-control validate" placeholder="Create a password" name="password" required>
                         <!-- LAZY DEBUGGING -->
-                        <input type="password" class="form-control validate" placeholder="Create a password" name="password" required value="pass">
+                        <!-- <input type="password" class="form-control validate" placeholder="Create a password" name="password" required value="pass"> -->
 
                         <!-- continue button -->
                         <button type="submit" class="btn btn-danger btn-rounden">Log in</button>
@@ -136,6 +136,26 @@
         });
         $("#logIn").modal("hide");
         $("#signUp").modal("hide");            
-        // window.location.href = "home.php";
+        window.location.href = "home.php";
+    });
+
+    $('#signUpForm').submit(function(event){
+        // Stop the page from refreshing when the form submits
+        event.preventDefault();
+        
+        // Login the user using ajax
+        $.ajax({
+            url : "signup.php",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (data) {
+                console.log("you've signed up");
+            },
+            error: function (jXHR, textStatus, errorThrown) {
+                console.log("error: " + errorThrown);
+            }
+        });
+        $("#logIn").modal("show");
+        $("#signUp").modal("hide");
     });
 </script>
