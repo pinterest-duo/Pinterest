@@ -60,6 +60,7 @@
                             <input type="hidden" value="'.$row['pin_id'].'" name="pin_id">
                             <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
                             <input type="hidden" value="'.$row['board_id'].'" name="board_id">
+                            <input type="hidden" value="'.$currentUser.'" name="user_id">
                             <input type="submit" class="savePin" value="Save">
                         </form>
         
@@ -87,6 +88,7 @@
                                 <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
                                 <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
                                 <input type="hidden" value="'.$row['board_id'].'" name="board_id">
+                                <input type="hidden" value="'.$currentUser.'" name="user_id">
                                 <input type="submit" class="savePinBoard" value="Save">
                             </div>
                         </form>';
@@ -95,11 +97,12 @@
                 echo '</div>
                         <div class="boardSelectionBottomCreate">
                             <form class="boardSelectionBottomCreateForm" method="POST">
-                            <div class="createButton">+</div>
-                            <p>Create Board</p>
-                            <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
-                            <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
-                            <input type="hidden" value="'.$row['blurb'].'" name="blurb">
+                                <div class="createButton">+</div>
+                                <p>Create Board</p>
+                                <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
+                                <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
+                                <input type="hidden" value="'.$row['blurb'].'" name="blurb">
+                                <input type="hidden" value="'.$currentUser.'" name="user_id">
                             </form>
                         </div>
                     </div>
@@ -109,7 +112,13 @@
                 else{
                     echo '<div class="saveContainer">
                         <!-- This should trigger a create a board popup -->
-                        <div class="savePinwImg" onclick=""><img class="pinIcon" src="images/pinButton.png"/>Save</div>
+                        <form class="boardSelectionBottomCreateFormSave" method="POST">
+                            <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
+                            <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
+                            <input type="hidden" value="'.$row['blurb'].'" name="blurb">
+                            <input type="hidden" value="'.$currentUser.'" name="user_id">
+                            <div class="savePinwImg"><img class="pinIcon" src="images/pinButton.png"/>Save</div>
+                        </form>
                     </div>';
                 }
                 // Display the pin image
@@ -192,6 +201,7 @@
                     <div class="createBoardBottom">
                         <div class="cancelBtn">Cancel</div>
                         <input class="createBoardPinUrl" type="hidden" name="pin_url" value=""/>
+                        <!-- <input type="hidden" value="" name="user_id"> -->
                         <input type="submit" class="createBtn" value="Create"/>
                     </div>
                 </div>
@@ -244,6 +254,11 @@
             $('.boardOptionContainer').click(function(){
                 $(this).parent().submit();
             });
+            
+            // Save pins
+            $('.savePinwImg').click(function(){
+                $(this).parent().submit();
+            });
 
             // Display the create form modalCreateBoard when user clicks on create board from the pin dropdown
             $('.boardSelectionBottomCreateForm').submit(function(event){
@@ -269,6 +284,30 @@
                 $('.modalCreateBoard').show();
                 $('.createBoard').show();
             });
+            $('.boardSelectionBottomCreateFormSave').submit(function(event){
+                event.preventDefault();
+
+                var fields = $(this).serializeArray();
+                var arr = [];
+
+                // Grab the pin information
+                jQuery.each( fields, function( i, field ) {
+                    arr[i] = (field.value);
+                });
+
+                // If the pin has a description, display it in the edit pin description area
+                $('.createBoard_PinAside img.pinPreview').attr("src", arr[1]);
+                if(arr[2] != ""){
+                    $('.createBoard_PinDesc p').html(arr[2]);
+                    $('textarea.boardPinDescField').val(arr[2]);
+                }
+                // Set the url for the pin in the modalCreateBoard
+                $('input.createBoardPinUrl').val(arr[1])
+
+                $('.modalCreateBoard').show();
+                $('.createBoard').show();
+            });
+
 
             $('.createBoard_Form').submit(function(){
                 // Stop the page from refreshing when the form submits
@@ -286,6 +325,7 @@
                         console.log("error: " + errorThrown);
                     }
                 });
+                
                 exitCreateBoardModal();
             });
 
@@ -334,6 +374,7 @@
                 console.log($(this).children('p').html());
                 $('input.boardNameField').val($(this).children('p').html());
             });
+            // document.
             $('input.boardNameField').change(function(){
                 console.log($(this).val());
                 if($(this).val() != " " && $(this).val() != ""){
@@ -393,12 +434,6 @@
             $('.boardPinDescField').blur(function(){
                 console.log($(this).val());
                 var pinDesc = ($(this).val());
-                // if(pinDesc != "" || pinDesc != " " || pinDesc != null){
-                    // var desc = $(this).parent().children('.createBoard_PinDesc p');
-                    // console.log(desc.val());
-                    // desc.innerHTML = pinDesc;
-                // }
-                // $('.createBoard_PinDesc p').html(pinDesc);
                 $('.createBoard_PinDesc p').html($(this).val());
                 $(this).hide();
                 $('.createBoard_PinDesc').show();

@@ -1,9 +1,8 @@
 <?php 
 require('includes/mysqli_connect.php');
 $url = $_POST['pin_url'];
-// $pin = $_POST['pin_id'];
+$userid = $_POST['user_id'];
 $board = $_POST['board_id'];
-$userid = 1;
 
 echo "pin url: $url <br> boardid: $board <br> user: $userid <br>";
 

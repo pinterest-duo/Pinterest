@@ -1,7 +1,10 @@
 <?php 
 require('includes/mysqli_connect.php');
 // Userid must be populated differently
-$userid = 1;
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+$userid = $_SESSION['user_id'];
 $url = $_POST['pin_url'];
 $board_name = $_POST['board_name'];
 $blurb = $_POST['pin_desc'];
