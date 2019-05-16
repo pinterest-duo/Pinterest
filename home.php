@@ -373,7 +373,6 @@
                 console.log($(this).children('p').html());
                 $('input.boardNameField').val($(this).children('p').html());
             });
-            // document.
             $('input.boardNameField').change(function(){
                 console.log($(this).val());
                 if($(this).val() != " " && $(this).val() != ""){
