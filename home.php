@@ -6,7 +6,17 @@
 <?php require('includes/header.php');?>
 
 <body>
-    <?php require('nav.html');?>
+    <?php
+        // Grab the username and user profile image to display in the navbar
+        require('includes/mysqli_connect.php');
+        // $currentUser = $_SESSION['user_id'];
+        $currentUser = 1;
+        $query = "SELECT username, user_image FROM users WHERE user_id = $currentUser;";
+        $run = mysqli_query($dbc, $query);
+        $row = mysqli_fetch_array($run, MYSQLI_ASSOC);
+        mysqli_close($dbc);
+        require('nav.php');
+    ?>
     <div class="container-fluid">
     <div class="row">
         <!-- Display the pins -->

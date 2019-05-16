@@ -49,8 +49,8 @@ CREATE TABLE pins(
 );
 
 -- Test data
-INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location) 
-VALUES(1, 'blinky', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York');
+INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location, user_image) 
+VALUES(1, 'blinky', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York', 'images/paris.jpg');
 
 INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
 INSERT INTO boards(board_name, user_id) VALUES('test_board2', 1);
@@ -65,8 +65,7 @@ INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('images/roadway.jpg','1','1');
 
 INSERT INTO pins(pin_url, board_id, user_id) VALUES
-('https://hdwallpaper20.com/wp-content/uploads/2017/07/c35db9c3f107decf6da1361c124b248f-friends-thanksgiving-pooh-bear.png','28','1');
-INSERT INTO pins(pin_url, board_id, user_id) VALUES
+('https://hdwallpaper20.com/wp-content/uploads/2017/07/c35db9c3f107decf6da1361c124b248f-friends-thanksgiving-pooh-bear.png','28','1'),
 ('https://theartsherpa.com/gallery/image/gallery_image/2309/1280','3','1'),
 ('https://image.tmdb.org/t/p/w1280//lKNYRlJ9jJAPU7yNYU0qTSQ4AYa.jpg','28','1'),
 ('https://66.media.tumblr.com/9db8aaa07e363833cd89408618c90ecb/tumblr_o1g3c8G9hY1rc5v2so1_1280.jpg','29','1'),
@@ -87,12 +86,8 @@ INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('https://pineapplesupply.co/wp-content/uploads/2018/06/iphone-pineapple-background-hit-the-beach-1280x1920.jpg','29','1'),
 ('https://66.media.tumblr.com/9b234c7fedf45f43540e606bad7ce119/tumblr_pljvaairut1w9rsho_1280.jpg','3','1'),
 ('https://i.pinimg.com/originals/c9/ef/cf/c9efcf5542e6af8ad7331242c2bdbc2d.jpg','1','1'),
-('https://i.pinimg.com/originals/93/83/a4/9383a4f304a8ec6d4b9e5cf72bb56bff.jpg','28','1');
-
-INSERT INTO pins(pin_url, board_id, user_id) VALUES
-('images/sunsets.jpg','29','1');
-
-INSERT INTO pins(pin_url, board_id, user_id) VALUES
+('https://i.pinimg.com/originals/93/83/a4/9383a4f304a8ec6d4b9e5cf72bb56bff.jpg','28','1'),
+('images/sunsets.jpg','29','1'),
 ('https://www.climbinggriermountain.com/wp-content/uploads/2019/02/Ultimate-Dark-Chocolate-Cake-with-Marshmallow-Frosting-www.climbinggriermountain.com-2.jpg','29','1'),
 ('https://i.pinimg.com/originals/9b/14/b3/9b14b3a3c2d6d178e5f2daed495eddfd.jpg','29','1'),
 ('https://66.media.tumblr.com/defec9db802afd17ac52f51ea4bc5ba7/tumblr_ppulpazuuv1s3nqmu_1280.jpg','29','1'),
@@ -106,10 +101,7 @@ INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('https://i.pinimg.com/originals/83/cf/36/83cf36f8f9f73857ca5e3011bdece64e.jpg','29','1'),
 ('https://i.pinimg.com/originals/72/b0/b1/72b0b1aae3f730aa51d0f17709a6af85.png','29','1'),
 ('https://i.redd.it/l8718l65tt211.jpg','29','1'),
-('https://i.pinimg.com/originals/a0/92/73/a0927344e7626558c77b13e97c7fd388.jpg','28','1');
-
-
-INSERT INTO pins(pin_url, board_id, user_id) VALUES
+('https://i.pinimg.com/originals/a0/92/73/a0927344e7626558c77b13e97c7fd388.jpg','28','1'),
 ('https://i.pinimg.com/originals/c1/d5/e0/c1d5e0b0ce5f06c80f6dbfe5c477d027.jpg','1','1'),
 ('http://66.media.tumblr.com/42c1a98ca3c8ed4c3ee615ed28a94761/tumblr_np1evcpBhp1rnh2c3o2_1280.jpg','1','1'),
 ('https://66.media.tumblr.com/024982ea5cbf5fccf0833bda56cca998/tumblr_phtumqtXYo1r9hr09o1_1280.jpg','1','1'),
