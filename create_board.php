@@ -19,13 +19,13 @@ user: $userid <br>";
 
 echo "<h1>Board Query</h1>";
 // Change the query depending on whether or not the board is secret
-if($is_secret_board == NULL){
+if($is_secret_board == NULL || $is_secret_board == '' || $is_secret_board == ' '){
     echo "secret board null<br>";
-    $query = "INSERT INTO boards(board_name, cover_pin_url, secret_board, user_id) VALUES('$board_name','$url', 'YES', '$userid');";
+    $query = "INSERT INTO boards(board_name, cover_pin_url, secret_board, user_id) VALUES('$board_name','$url', 'NO', '$userid');";
 }
 else{
     echo "secret board NOT null<br>";
-    $query = "INSERT INTO boards(board_name, cover_pin_url, user_id) VALUES('$board_name', '$url','$userid');";
+    $query = "INSERT INTO boards(board_name, cover_pin_url, secret_board, user_id) VALUES('$board_name','$url', 'YES', '$userid');";
 }
 // Create the Board
 $run = mysqli_query($dbc, $query);

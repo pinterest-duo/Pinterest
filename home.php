@@ -162,7 +162,7 @@
                     <div class="createBoard_Input botBord">
                         <label class="suggestedBoardNames" for="is_secret_board">Secret</label>
                         <label class="switch">
-                            <input class="secretSwitch" type="checkbox" value="yes">
+                            <input class="secretSwitch" type="checkbox" value="secret">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -255,12 +255,12 @@
                 $(this).parent().submit();
             });
             
-            // Save pins
+            // Save pins from save button without board
             $('.savePinwImg').click(function(){
                 $(this).parent().submit();
             });
 
-            // Display the create form modalCreateBoard when user clicks on create board from the pin dropdown
+            // Display the create form modalCreateBoard when user clicks on create board from the pin dropdown or the save pin
             $('.boardSelectionBottomCreateForm').submit(function(event){
                 event.preventDefault();
 
@@ -307,7 +307,6 @@
                 $('.modalCreateBoard').show();
                 $('.createBoard').show();
             });
-
 
             $('.createBoard_Form').submit(function(){
                 // Stop the page from refreshing when the form submits
