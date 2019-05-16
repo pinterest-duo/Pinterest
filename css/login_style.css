@@ -4,7 +4,10 @@
     width: 440px; 
 
 }
-
+.centerSignUpHead{
+    margin: auto;
+    text-align: center;
+}
 #blogin{
     margin: 48px 24px; 
     margin-bottom: 0px; 
@@ -23,11 +26,6 @@
     
 }
 
-#logo{
-    padding-bottom: 20px;
-
-}
-
 .title{
     margin: 0px auto 25px; 
     width: 270px;
@@ -44,7 +42,7 @@
     margin-top: 5px;
     height: 50px; 
     width: 50px; 
-    display: block;
+    margin-bottom: 20px;
 }
 
 .form{

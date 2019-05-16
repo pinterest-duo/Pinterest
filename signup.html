@@ -2,16 +2,13 @@
     <button id="blogin" class="btn btn-light btn-rounden z-depth-1a">Log in</button>
     <div class="modal-dialog" role="document">
         <div class="modal-content form-elegant">
-            <center>
-                <div id="logo">
-                    <img class="flogo" src="images/pinterest_logo.png">
-                </div> 
-                
+            <div class="centerSignUpHead">
+                <img class="flogo" src="images/pinterest_logo.png">
                 <div id="title">
                     <h3><strong>Welcome to Pinterest</strong></h3>
                     <p>Find new ideas to try</p>
                 </div>
-            </center>
+            </div>
 
             <!-- Signup Form -->
             <form action="signup.php" method="POST">
@@ -22,8 +19,10 @@
                         <input type="email" class="form-control validate" placeholder="Email" name="email" required>
 
                         <!-- Password -->
-                        <!-- <input type="password" class="form-control validate" placeholder="Create a password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> -->
-                        <input type="password" class="form-control validate" placeholder="Create a password" name="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        <input type="password" class="form-control validate" placeholder="Create a password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        
+                        <!-- Lazy Password for debugging -->
+                        <!-- <input type="password" class="form-control validate" placeholder="Create a password" name="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> -->
 
                         <!-- Age -->
                         <input type="text" class="form-control validate" placeholder="Age" name="age" pattern="\d*" required title="Must be a number">
@@ -42,8 +41,8 @@
 
             <div class="sub1">
                 By continuing, you agree to Pinterest's
-                <a href="https://policy.pinterest.com/en/terms-of-service">Terms of Service</a>
-                <a href="https://policy.pinterest.com/en/privacy-policy">Privacy Policy</a>
+                <a href="https://policy.pinterest.com/en/terms-of-service" target="_blank">Terms of Service</a>
+                <a href="https://policy.pinterest.com/en/privacy-policy" target="_blank">Privacy Policy</a>
             </div>
 
             <div class="sub2">

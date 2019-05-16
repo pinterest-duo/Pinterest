@@ -3,10 +3,13 @@
     Pinterest home feed with pinning and board creation functions.
     5.6.19
  -->
-<?php require('includes/header.php');?>
+<?php require('includes/header.php');
+require('form_signup.php');
+?>
 
 <body>
-    <?php require('nav.html');?>
+    <?php require('nav.html'); ?>
+
     <div class="container-fluid">
     <div class="row">
         <!-- Display the pins -->
@@ -106,6 +109,7 @@
                     <p class="pinBoard"></p>
                     <img class="pinImg" src="'.$row['pin_url'].'"/>
                 </div>    
+                
                     <a href="" class="ellipses">...</a>
                 </div>';
             }
@@ -116,8 +120,8 @@
         
     </div>
 
-    <!-- Create Board modal -->
-    <div class="modalCreateBoard"></div>
+    <!-- The create board modal -->
+    <div class="modalSara"></div>
     <div class="createBoard">
         <div class="createBoardTitle">
             <h2>Choose board</h2>
@@ -126,7 +130,7 @@
         <div>
             <div class="createBoard_PinAside">
                 <img class="pinPreview" src="images/paris.jpg"/>
-                <!-- Populated by pin, this value by default -->
+                <!-- Should be populated by pin, this value by default -->
                 <div class="createBoard_PinDesc"><p>Tell us about this Pin...</p><img src="images/edit.png" alt="Edit"/></div>
                 <form class="createBoard_Form" method="POST" action="create_board.php">
                     <textarea class="boardPinDescField" name="pin_desc" type="text" placeholder="Tell us about this Pin..."></textarea>  
@@ -233,28 +237,26 @@
                 $(this).parent().submit();
             });
 
-            // Display the create form modalCreateBoard when user clicks on create board from the pin dropdown
+            // Display the create form modalSara when user clicks on create board from the pin dropdown
             $('.boardSelectionBottomCreateForm').submit(function(event){
                 event.preventDefault();
 
                 var fields = $(this).serializeArray();
                 var arr = [];
 
-                // Grab the pin information
                 jQuery.each( fields, function( i, field ) {
                     arr[i] = (field.value);
+                    console.log(field.value);
                 });
 
-                // If the pin has a description, display it in the edit pin description area
                 $('.createBoard_PinAside img.pinPreview').attr("src", arr[1]);
                 if(arr[2] != ""){
-                    $('.createBoard_PinDesc p').html(arr[2]);
-                    $('textarea.boardPinDescField').val(arr[2]);
+                    $('.createBoard_PinDesc').html(arr[2]);
                 }
-                // Set the url for the pin in the modalCreateBoard
+                // Set the url for the pin in the modalSara
                 $('input.createBoardPinUrl').val(arr[1])
 
-                $('.modalCreateBoard').show();
+                $('.modalSara').show();
                 $('.createBoard').show();
             });
 
@@ -285,11 +287,11 @@
             $('.modalCloseBtn').click(function(){
                 exitCreateBoardModal();
             });
-            $('.modalCreateBoard').click(function(){
+            $('.modalSara').click(function(){
                 exitCreateBoardModal();
             });
             function exitCreateBoardModal(){
-                $('.modalCreateBoard').hide();
+                $('.modalSara').hide();
                 $('.createBoard').hide();
                 $('.boardSelectionContainer').toggle();
                 $('.createBoardBottom').hide();
