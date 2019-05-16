@@ -1,9 +1,12 @@
 <!-- 
     Sara Dhani
     Pinterest home feed with pinning and board creation functions.
-    5.6.19
+    Date: 5.6.19
  -->
-<?php require('includes/header.php');?>
+<?php
+    require('includes/header.php');
+    require_once('signup_login.php');
+?>
 
 <body>
     <?php
