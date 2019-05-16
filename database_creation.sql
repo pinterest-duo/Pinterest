@@ -52,12 +52,11 @@ CREATE TABLE pins(
 INSERT INTO users(user_id, username, email, password, age, first_name, gender, user_language, country, user_location, user_image) 
 VALUES(1, 'blinky', 'test@test.com', 'pass', '21', 'test', 'female', 'English', 'United States', 'New York', 'images/paris.jpg');
 
-INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'test_board', 1);
-INSERT INTO boards(board_name, user_id) VALUES('test_board2', 1);
-INSERT INTO boards(board_name, user_id) VALUES('Favorite Characters', 1);
-INSERT INTO boards(board_name, user_id) VALUES('Miscellaneous', 1);
+INSERT INTO boards(board_id, board_name, user_id) VALUES(1,'Photography', 1);
+INSERT INTO boards(board_id, board_name, user_id) VALUES(3,'Nature', 1);
+INSERT INTO boards(board_id, board_name, user_id) VALUES(28,'Favorite Characters', 1);
+INSERT INTO boards(board_id, board_name, user_id) VALUES(29,'Micellaneous', 1);
 
-INSERT INTO pins(pin_url, board_id, user_id) VALUES('google.com','1','1');
 INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('images/paris.jpg','1','1'),
 ('images/palm-tree.jpg','1','1'),
@@ -111,9 +110,6 @@ INSERT INTO pins(pin_url, board_id, user_id) VALUES
 ('https://i0.wp.com/wallup.net/wp-content/uploads/2017/03/28/401837-nature-photography-portrait_display.jpg','1','1'),
 ('http://66.media.tumblr.com/56156f41ea1fc4f58e07c590235a3dde/tumblr_n1xbuhuFw21soesuko3_1280.jpg','1','1'),
 ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRswP7rxSQdAMyxda-5uI_rXPyvV0rzxCLV5Qs4ulrfNXKE7RFg','1','1');
-
-DELETE FROM users WHERE user_id='1';
-DELETE FROM boards WHERE board_id='1';
 
 SELECT * FROM users;
 SELECT * FROM boards;
