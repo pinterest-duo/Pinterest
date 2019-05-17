@@ -50,7 +50,7 @@
             while($row = mysqli_fetch_array($pin_run, MYSQLI_ASSOC)){
                 echo '<div class="col-auto text-center pin" id="pin'.$row['pin_id'].'">';                
                 // Only create the board dropdown if the user has at least one board
-                if($numBoards != 0){
+                if($numBoards != 0 && $_SESSION['user_id']){
                     echo '
                     <div class="dropdownContainer">
                         <!-- The dropdown "button" -->
@@ -94,22 +94,22 @@
                         </form>';
                         $currBoard++;
                     }
-                echo '</div>
-                        <div class="boardSelectionBottomCreate">
-                            <form class="boardSelectionBottomCreateForm" method="POST">
-                                <div class="createButton">+</div>
-                                <p>Create Board</p>
-                                <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
-                                <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
-                                <input type="hidden" value="'.$row['blurb'].'" name="blurb">
-                                <input type="hidden" value="'.$currentUser.'" name="user_id">
-                            </form>
+                    echo '</div>
+                            <div class="boardSelectionBottomCreate">
+                                <form class="boardSelectionBottomCreateForm" method="POST">
+                                    <div class="createButton">+</div>
+                                    <p>Create Board</p>
+                                    <input type="hidden" value="'.$row['pin_id'].'" name=pin_id">
+                                    <input type="hidden" value="'.$row['pin_url'].'" name="pin_url">
+                                    <input type="hidden" value="'.$row['blurb'].'" name="blurb">
+                                    <input type="hidden" value="'.$currentUser.'" name="user_id">
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    </div>';
+                        </div>';
                 }
                 // Display a save button if the user has no boards
-                else{
+                else if($_SESSION['user_id']){
                     echo '<div class="saveContainer">
                         <!-- This should trigger a create a board popup -->
                         <form class="boardSelectionBottomCreateFormSave" method="POST">
